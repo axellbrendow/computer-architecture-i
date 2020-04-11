@@ -1,0 +1,126 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_000000000078c870 .scope module, "Exemplo_0902" "Exemplo_0902" 2 51;
+ .timescale 0 0;
+v00000000007859e0_0 .net "clock1", 0 0, v00000000006e8f00_0;  1 drivers
+v0000000000785a80_0 .var "on", 0 0;
+v00000000007e6260_0 .net "pulse1", 0 0, v00000000006ee240_0;  1 drivers
+v00000000007e6300_0 .net "trigger1", 0 0, v0000000000785940_0;  1 drivers
+S_00000000006e8d80 .scope module, "clk1" "clock" 2 55, 2 7 0, S_000000000078c870;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "clk"
+v00000000006e8f00_0 .var "clk", 0 0;
+S_00000000006e8fa0 .scope begin, "main" "main" 2 71, 2 71 0, S_000000000078c870;
+ .timescale 0 0;
+S_00000000006ee020 .scope module, "pul1" "pulse" 2 58, 2 23 0, S_000000000078c870;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clock"
+    .port_info 1 /OUTPUT 1 "signal"
+v00000000006ee1a0_0 .net "clock", 0 0, v00000000006e8f00_0;  alias, 1 drivers
+v00000000006ee240_0 .var "signal", 0 0;
+E_00000000006e7ba0 .event edge, v00000000006e8f00_0;
+S_0000000000785720 .scope module, "trig1" "trigger" 2 62, 2 38 0, S_000000000078c870;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clock"
+    .port_info 1 /INPUT 1 "on"
+    .port_info 2 /OUTPUT 1 "signal"
+L_000000000078cc00 .functor AND 1, v00000000006e8f00_0, v0000000000785a80_0, C4<1>, C4<1>;
+v00000000006ee2e0_0 .net *"_s1", 0 0, L_000000000078cc00;  1 drivers
+v00000000006ee380_0 .net "clock", 0 0, v00000000006e8f00_0;  alias, 1 drivers
+v00000000007858a0_0 .net "on", 0 0, v0000000000785a80_0;  1 drivers
+v0000000000785940_0 .var "signal", 0 0;
+E_00000000006e7ca0 .event edge, L_000000000078cc00;
+    .scope S_00000000006e8d80;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006e8f00_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_00000000006e8d80;
+T_1 ;
+    %delay 12, 0;
+    %load/vec4 v00000000006e8f00_0;
+    %inv;
+    %store/vec4 v00000000006e8f00_0, 0, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00000000006ee020;
+T_2 ;
+    %wait E_00000000006e7ba0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006ee240_0, 0, 1;
+    %delay 3, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006ee240_0, 0, 1;
+    %delay 3, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006ee240_0, 0, 1;
+    %delay 3, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006ee240_0, 0, 1;
+    %jmp T_2;
+    .thread T_2, $push;
+    .scope S_0000000000785720;
+T_3 ;
+    %wait E_00000000006e7ca0;
+    %delay 60, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000785940_0, 0, 1;
+    %delay 60, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000785940_0, 0, 1;
+    %jmp T_3;
+    .thread T_3, $push;
+    .scope S_000000000078c870;
+T_4 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %end;
+    .thread T_4;
+    .scope S_000000000078c870;
+T_5 ;
+    %fork t_1, S_00000000006e8fa0;
+    %jmp t_0;
+    .scope S_00000000006e8fa0;
+t_1 ;
+    %vpi_call 2 72 "$display", "\000" {0 0 0};
+    %vpi_call 2 73 "$display", "Exemplo_0902 - Axell Brendow - 631822" {0 0 0};
+    %vpi_call 2 74 "$display", "\000" {0 0 0};
+    %vpi_call 2 76 "$dumpfile", "Exemplo_0902.vcd" {0 0 0};
+    %vpi_call 2 82 "$dumpvars", 32'sb00000000000000000000000000000001, v00000000007859e0_0, v00000000007e6260_0, v0000000000785a80_0, v00000000007e6300_0 {0 0 0};
+    %delay 60, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 120, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 180, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 240, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 300, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 360, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000785a80_0, 0, 1;
+    %delay 376, 0;
+    %vpi_call 2 90 "$finish" {0 0 0};
+    %end;
+    .scope S_000000000078c870;
+t_0 %join;
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0902.v";

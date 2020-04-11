@@ -1,0 +1,71 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_000000000071ebb0 .scope module, "Exemplo_0505" "Exemplo_0505" 2 26;
+ .timescale 0 0;
+v00000000007b8620_0 .var "p", 0 0;
+v00000000007b86c0_0 .var "q", 0 0;
+v00000000007b8760_0 .net "result", 0 0, L_00000000007b8800;  1 drivers
+S_000000000071ed30 .scope begin, "main" "main" 2 36, 2 36 0, S_000000000071ebb0;
+ .timescale 0 0;
+S_000000000071e020 .scope module, "myOr" "OR" 2 32, 2 13 0, S_000000000071ebb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+L_000000000071e760 .functor NOR 1, v00000000007b8620_0, v00000000007b86c0_0, C4<0>, C4<0>;
+v00000000007b7120_0 .net "p", 0 0, v00000000007b8620_0;  1 drivers
+v00000000007b8440_0 .net "p_nor_q", 0 0, L_000000000071e760;  1 drivers
+v00000000007b84e0_0 .net "q", 0 0, v00000000007b86c0_0;  1 drivers
+v00000000007b8580_0 .net "result", 0 0, L_00000000007b8800;  alias, 1 drivers
+S_000000000071e1a0 .scope module, "p_AND_q" "NOT" 2 22, 2 7 0, S_000000000071e020;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000007b8800 .functor NOR 1, L_000000000071e760, L_000000000071e760, C4<0>, C4<0>;
+v000000000071e320_0 .net "p", 0 0, L_000000000071e760;  alias, 1 drivers
+v000000000071eeb0_0 .net "result", 0 0, L_00000000007b8800;  alias, 1 drivers
+    .scope S_000000000071ebb0;
+T_0 ;
+    %fork t_1, S_000000000071ed30;
+    %jmp t_0;
+    .scope S_000000000071ed30;
+t_1 ;
+    %vpi_call 2 37 "$display", "\000" {0 0 0};
+    %vpi_call 2 38 "$display", "Exemplo_0505 - Axell Brendow - 631822" {0 0 0};
+    %vpi_call 2 39 "$display", "\000" {0 0 0};
+    %vpi_call 2 42 "$monitor", "or(%b, %b) = %b", v00000000007b8620_0, v00000000007b86c0_0, v00000000007b8760_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000007b8620_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000007b86c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000007b8620_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000007b86c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000007b8620_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000007b86c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000007b8620_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000007b86c0_0, 0, 1;
+    %end;
+    .scope S_000000000071ebb0;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0505.v";

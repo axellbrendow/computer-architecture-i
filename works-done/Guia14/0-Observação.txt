@@ -1,0 +1,4 @@
+
+Não fiz as questões extras 6 e 7 pois não enxerguei nenhuma vantagem na "contagem" não lógica do "contador" circular.
+
+E caso a intenção fosse criar um registrador de deslocamento circular este já foi feito no Guia13.

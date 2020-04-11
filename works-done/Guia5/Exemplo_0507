@@ -1,0 +1,147 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000003a4880 .scope module, "Exemplo_0507" "Exemplo_0507" 2 60;
+ .timescale 0 0;
+v0000000002551230_0 .var "p", 0 0;
+v00000000025512d0_0 .var "q", 0 0;
+v0000000002551370_0 .net "result", 0 0, L_00000000003feb70;  1 drivers
+S_0000000000394ce0 .scope begin, "main" "main" 2 70, 2 70 0, S_00000000003a4880;
+ .timescale 0 0;
+S_0000000000394e60 .scope module, "myXnor" "XNOR" 2 66, 2 41 0, S_00000000003a4880;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+v0000000002550dd0_0 .net "not_p", 0 0, L_00000000002ffc50;  1 drivers
+v0000000002550e70_0 .net "not_p_and_not_q", 0 0, L_0000000002552a00;  1 drivers
+v0000000002550f10_0 .net "not_q", 0 0, L_00000000002fe760;  1 drivers
+v0000000002550fb0_0 .net "p", 0 0, v0000000002551230_0;  1 drivers
+v0000000002551050_0 .net "p_and_q", 0 0, L_00000000003fea90;  1 drivers
+v00000000025510f0_0 .net "q", 0 0, v00000000025512d0_0;  1 drivers
+v0000000002551190_0 .net "result", 0 0, L_00000000003feb70;  alias, 1 drivers
+S_00000000002febb0 .scope module, "AND_OR_AND" "OR" 2 56, 2 13 0, S_0000000000394e60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+L_00000000003feb00 .functor NOR 1, L_0000000002552a00, L_00000000003fea90, C4<0>, C4<0>;
+v0000000000394fe0_0 .net "p", 0 0, L_0000000002552a00;  alias, 1 drivers
+v00000000003a34e0_0 .net "p_nor_q", 0 0, L_00000000003feb00;  1 drivers
+v0000000000397ee0_0 .net "q", 0 0, L_00000000003fea90;  alias, 1 drivers
+v0000000000397f80_0 .net "result", 0 0, L_00000000003feb70;  alias, 1 drivers
+S_00000000002fed30 .scope module, "p_AND_q" "NOT" 2 22, 2 7 0, S_00000000002febb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000003feb70 .functor NOR 1, L_00000000003feb00, L_00000000003feb00, C4<0>, C4<0>;
+v00000000003a4a00_0 .net "p", 0 0, L_00000000003feb00;  alias, 1 drivers
+v00000000002feeb0_0 .net "result", 0 0, L_00000000003feb70;  alias, 1 drivers
+S_0000000000398020 .scope module, "NOT_p" "NOT" 2 50, 2 7 0, S_0000000000394e60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000002ffc50 .functor NOR 1, v0000000002551230_0, v0000000002551230_0, C4<0>, C4<0>;
+v00000000003981a0_0 .net "p", 0 0, v0000000002551230_0;  alias, 1 drivers
+v00000000025500b0_0 .net "result", 0 0, L_00000000002ffc50;  alias, 1 drivers
+S_00000000002ff8c0 .scope module, "NOT_q" "NOT" 2 51, 2 7 0, S_0000000000394e60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000002fe760 .functor NOR 1, v00000000025512d0_0, v00000000025512d0_0, C4<0>, C4<0>;
+v0000000002550150_0 .net "p", 0 0, v00000000025512d0_0;  alias, 1 drivers
+v00000000025501f0_0 .net "result", 0 0, L_00000000002fe760;  alias, 1 drivers
+S_00000000002ffa40 .scope module, "not_p_AND_not_q" "AND" 2 52, 2 26 0, S_0000000000394e60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+L_0000000002552a00 .functor NOR 1, L_0000000002552920, L_0000000002552990, C4<0>, C4<0>;
+v0000000002550510_0 .net "not_p", 0 0, L_0000000002552920;  1 drivers
+v00000000025505b0_0 .net "not_q", 0 0, L_0000000002552990;  1 drivers
+v0000000002550650_0 .net "p", 0 0, L_00000000002ffc50;  alias, 1 drivers
+v00000000025506f0_0 .net "q", 0 0, L_00000000002fe760;  alias, 1 drivers
+v0000000002550790_0 .net "result", 0 0, L_0000000002552a00;  alias, 1 drivers
+S_0000000002552080 .scope module, "NOT_p" "NOT" 2 33, 2 7 0, S_00000000002ffa40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_0000000002552920 .functor NOR 1, L_00000000002ffc50, L_00000000002ffc50, C4<0>, C4<0>;
+v0000000002550290_0 .net "p", 0 0, L_00000000002ffc50;  alias, 1 drivers
+v0000000002550330_0 .net "result", 0 0, L_0000000002552920;  alias, 1 drivers
+S_0000000002552200 .scope module, "NOT_q" "NOT" 2 34, 2 7 0, S_00000000002ffa40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_0000000002552990 .functor NOR 1, L_00000000002fe760, L_00000000002fe760, C4<0>, C4<0>;
+v00000000025503d0_0 .net "p", 0 0, L_00000000002fe760;  alias, 1 drivers
+v0000000002550470_0 .net "result", 0 0, L_0000000002552990;  alias, 1 drivers
+S_0000000002552380 .scope module, "p_AND_q" "AND" 2 53, 2 26 0, S_0000000000394e60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+L_00000000003fea90 .functor NOR 1, L_0000000002552a70, L_00000000003fea20, C4<0>, C4<0>;
+v0000000002550ab0_0 .net "not_p", 0 0, L_0000000002552a70;  1 drivers
+v0000000002550b50_0 .net "not_q", 0 0, L_00000000003fea20;  1 drivers
+v0000000002550bf0_0 .net "p", 0 0, v0000000002551230_0;  alias, 1 drivers
+v0000000002550c90_0 .net "q", 0 0, v00000000025512d0_0;  alias, 1 drivers
+v0000000002550d30_0 .net "result", 0 0, L_00000000003fea90;  alias, 1 drivers
+S_0000000002552500 .scope module, "NOT_p" "NOT" 2 33, 2 7 0, S_0000000002552380;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_0000000002552a70 .functor NOR 1, v0000000002551230_0, v0000000002551230_0, C4<0>, C4<0>;
+v0000000002550830_0 .net "p", 0 0, v0000000002551230_0;  alias, 1 drivers
+v00000000025508d0_0 .net "result", 0 0, L_0000000002552a70;  alias, 1 drivers
+S_0000000002552680 .scope module, "NOT_q" "NOT" 2 34, 2 7 0, S_0000000002552380;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000003fea20 .functor NOR 1, v00000000025512d0_0, v00000000025512d0_0, C4<0>, C4<0>;
+v0000000002550970_0 .net "p", 0 0, v00000000025512d0_0;  alias, 1 drivers
+v0000000002550a10_0 .net "result", 0 0, L_00000000003fea20;  alias, 1 drivers
+    .scope S_00000000003a4880;
+T_0 ;
+    %fork t_1, S_0000000000394ce0;
+    %jmp t_0;
+    .scope S_0000000000394ce0;
+t_1 ;
+    %vpi_call 2 71 "$display", "\000" {0 0 0};
+    %vpi_call 2 72 "$display", "Exemplo_0507 - Axell Brendow - 631822" {0 0 0};
+    %vpi_call 2 73 "$display", "\000" {0 0 0};
+    %vpi_call 2 76 "$monitor", "xnor(%b, %b) = %b", v0000000002551230_0, v00000000025512d0_0, v0000000002551370_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000002551230_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000025512d0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000002551230_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000025512d0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000002551230_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000025512d0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000002551230_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000025512d0_0, 0, 1;
+    %end;
+    .scope S_00000000003a4880;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0507.v";

@@ -1,0 +1,601 @@
+Guia 06
+
+Nome: Axell Brendow
+
+Matricula: 631822
+
+Data: 20/09/18
+
+
+
+Exercicios:
+
+
+
+------------------------------------------------------------------
+
+
+
+1 - a) f(x,y,z) = Sm(1, 5, 7)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	0	1
+01	0	0
+11	0	1
+10	0	1
+
+Tomando 1 e 5 -> ~YZ
+Tomando 5 e 7 -> XZ
+
+f(x,y,z) = Sm(1, 5, 7) = XZ + ~YZ = Z(X + ~Y)
+
+
+
+
+1 - b) f(x,y,z) = Sm(0, 2, 6)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	1	0
+01	1	0
+11	1	0
+10	0	0
+
+Tomando 0 e 2 -> ~X~Z
+Tomando 2 e 6 -> Y~Z
+
+f(x,y,z) = Sm(0, 2, 6) = ~X~Z + Y~Z = ~Z(~X + Y)
+
+
+
+
+
+1 - c) f(x,y,z) = Sm(0, 1, 4, 5)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	1	1
+01	0	0
+11	0	0
+10	1	1
+
+Tomando 0, 1, 4 e 5 -> ~Y
+
+f(x,y,z) = Sm(0, 1, 4, 5) = ~Y
+
+
+
+
+1 - d) f(x,y,z) = Sm(2, 3, 5, 7)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	0	0
+01	1	1
+11	0	1
+10	0	1
+
+Tomando 2 e 3 -> ~XY
+Tomando 5 e 7 -> XZ
+
+f(x,y,z) = Sm(2, 3, 5, 7) = ~XY + XZ
+
+
+
+
+
+1 - e) f(x,y,z) = Sm(0, 3, 4, 6)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	1	0
+01	0	1
+11	1	0
+10	1	0
+
+Tomando 0 e 4 -> ~Y~Z
+Tomando 4 e 6 -> X~Z
+Tomando 3 -> ~XYZ
+
+f(x,y,z) = Sm(0, 3, 4, 6) = ~Y~Z + X~Z + ~XYZ
+
+
+
+
+
+------------------------------------------------------------------
+
+(Existem dois exercícios 3 no PDF do Guia6, este abaixo se refere ao primeiro)
+
+
+
+3 - a) f(x,y,z) = PM(1, 3, 5)
+
+XY\Z	0	1
+
+00	M0	M1
+01	M2	M3
+11	M6	M7
+10	M4	M5
+
+XY\Z	0	1
+
+00	1	0
+01	1	0
+11	1	1
+10	1	0
+
+Tomando 1 e 3 -> (X + ~Z)
+Tomando 1 e 5 -> (y + ~Z)
+
+f(x,y,z) = PM(1, 3, 5) = (X + ~Z).(Y + ~Z) = ~Z + XY
+
+
+
+
+
+3 - b) f(x,y,z) = PM(1, 5, 7)
+
+XY\Z	0	1
+
+00	M0	M1
+01	M2	M3
+11	M6	M7
+10	M4	M5
+
+XY\Z	0	1
+
+00	1	0
+01	1	1
+11	1	0
+10	1	0
+
+Tomando 1 e 5 -> (Y + ~Z)
+Tomando 5 e 7 -> (~X + ~Z)
+
+f(x,y,z) = PM(1, 5, 7) = (Y + ~Z).(~X + ~Z) = ~Z + ~XY
+
+
+
+
+
+3 - c) f(x,y,z) = PM(1, 2, 3, 6)
+
+XY\Z	0	1
+
+00	M0	M1
+01	M2	M3
+11	M6	M7
+10	M4	M5
+
+XY\Z	0	1
+
+00	1	0
+01	0	0
+11	0	1
+10	1	1
+
+Tomando 1 e 3 -> (X + ~Z)
+Tomando 2 e 6 -> (~Y + Z)
+
+f(x,y,z) = PM(1, 2, 3, 6) = (X + ~Z).(~Y + Z)
+
+
+
+
+
+3 - d) f(x,y,z) = PM(0, 2, 3, 6)
+
+XY\Z	0	1
+
+00	M0	M1
+01	M2	M3
+11	M6	M7
+10	M4	M5
+
+XY\Z	0	1
+
+00	0	1
+01	0	0
+11	0	1
+10	1	1
+
+Tomando 0 e 2 -> (X + Z)
+Tomando 2 e 3 -> (X + ~Y)
+Tomando 2 e 6 -> (~Y + Z)
+
+f(x,y,z) = PM(1, 2, 3, 6) = (X + Z).(X + ~Y).(~Y + Z) = (X + ~YZ).(~Y + Z)
+
+
+
+
+
+3 - e) f(x,y,z) = PM(2, 3, 6, 7)
+
+XY\Z	0	1
+
+00	M0	M1
+01	M2	M3
+11	M6	M7
+10	M4	M5
+
+XY\Z	0	1
+
+00	1	1
+01	0	0
+11	0	0
+10	1	1
+
+Tomando 2, 3, 6 e 7 -> ~Y
+
+f(x,y,z) = PM(1, 2, 3, 6) = ~Y
+
+
+
+
+
+------------------------------------------------------------------
+
+(Este exercicio 3 se refere ao segundo exercicio 3 do PDF do Guia6)
+
+
+
+
+3 - a) f(x,y,w,z) = Sm(1, 2, 3, 7, 14, 15)
+
+XY\WZ	00	01	11	10
+
+00	m0	m1	m3	m2
+01	m4	m5	m7	m6
+11	m12	m13	m15	m14
+10	m8	m9	m11	m10
+
+XY\WZ	00	01	11	10
+
+00	0	1	1	1
+01	0	0	1	0
+11	0	0	1	1
+10	0	0	0	0
+
+Tomando 1 e 3 -> ~X~YZ
+Tomando 2 e 3 -> ~X~YW
+Tomando 7 e 15 -> YWZ
+Tomando 14 e 15 -> XYW
+
+f(x,y,w,z) = Sm(1, 2, 3, 7, 14, 15) = ~X~YZ + ~X~YW + YWZ + XYW = ~X~Y(W + Z) + YW(X + Z)
+
+
+
+
+
+3 - b) f(x,y,w,z) = Sm(0, 2, 3, 5, 6, 7)
+
+XY\WZ	00	01	11	10
+
+00	m0	m1	m3	m2
+01	m4	m5	m7	m6
+11	m12	m13	m15	m14
+10	m8	m9	m11	m10
+
+XY\WZ	00	01	11	10
+
+00	1	0	1	1
+01	0	1	1	1
+11	0	0	0	0
+10	0	0	0	0
+
+Tomando 0 e 2 -> ~X~Y~Z
+Tomando 2, 3, 6 e 7 -> ~XW
+Tomando 5 e 7 -> ~XYZ
+
+f(x,y,w,z) = Sm(0, 2, 3, 5, 6, 7) = ~X~Y~Z + ~XW + ~XYZ = ~X(~Y~Z + W + YZ)
+
+
+
+
+
+3 - c) f(x,y,w,z) = Sm(0, 1, 2, 3, 7, 8, 9, 13)
+
+XY\WZ	00	01	11	10
+
+00	m0	m1	m3	m2
+01	m4	m5	m7	m6
+11	m12	m13	m15	m14
+10	m8	m9	m11	m10
+
+XY\WZ	00	01	11	10
+
+00	1	1	1	1
+01	0	0	1	0
+11	0	1	0	0
+10	1	1	0	0
+
+Tomando 0, 1, 2 e 3 -> ~X~Y
+Tomando 3 e 7 -> ~XWZ
+Tomando 8 e 9 -> X~Y~W
+Tomando 9 e 13 -> X~WZ
+
+f(x,y,w,z) = Sm(0, 1, 2, 3, 7, 8, 9, 13) = ~X~Y + ~XWZ + X~Y~W + X~WZ = ~X(~Y + WZ) + X(~Y~W + ~WZ) = ~X(~Y + WZ) + X~W(~Y + Z)
+
+
+
+
+
+3 - d) f(x,y,w,z) = Sm(2, 4, 6, 10, 12, 13)
+
+XY\WZ	00	01	11	10
+
+00	m0	m1	m3	m2
+01	m4	m5	m7	m6
+11	m12	m13	m15	m14
+10	m8	m9	m11	m10
+
+XY\WZ	00	01	11	10
+
+00	0	0	0	1
+01	1	0	0	1
+11	1	1	0	0
+10	0	0	0	1
+
+Tomando 2 e 6 -> ~XW~Z
+Tomando 2 e 10 -> ~YW~Z
+Tomando 4 e 12 -> Y~W~Z
+Tomando 12 e 13 -> XY~W
+
+f(x,y,w,z) = Sm(2, 4, 6, 10, 12, 13) = ~XW~Z + ~YW~Z + Y~W~Z + XY~W = W~Z(~X + ~Y) + ~W(Y~Z + XY)
+
+
+
+
+
+3 - e) f(x,y,w,z) = Sm(0, 1, 4, 8, 11, 14, 15)
+
+XY\WZ	00	01	11	10
+
+00	m0	m1	m3	m2
+01	m4	m5	m7	m6
+11	m12	m13	m15	m14
+10	m8	m9	m11	m10
+
+XY\WZ	00	01	11	10
+
+00	1	1	0	0
+01	1	0	0	0
+11	0	0	1	1
+10	1	0	1	0
+
+Tomando 0 e 1 -> ~X~Y~W
+Tomando 0 e 4 -> ~X~W~Z
+Tomando 0 e 8 -> ~Y~W~Z
+Tomando 11 e 15 -> XWZ
+Tomando 14 e 15 -> XYW
+
+f(x,y,w,z) = Sm(0, 1, 4, 8, 11, 14, 15) = ~X~Y~W + ~X~W~Z + ~Y~W~Z + XWZ + XYW = ~W(~X(~Y + ~Z) + ~Y~Z) + XW(Z + Y)
+
+
+
+
+
+------------------------------------------------------------------
+
+
+4 - a)  f(x,y,w,z) = PM(2, 6, 8, 12)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	1	1	1	0
+01	1	1	1	0
+11	0	1	1	1
+10	0	1	1	1
+
+Tomando 2 e 6 -> (X + ~W + Z)
+Tomando 8 e 12 -> (~X + W + Z)
+
+f(x,y,w,z) = PM(2, 6, 8, 12) = (X + ~W + Z).(~X + W + Z) = Z + (X + ~W)(~X + W) = Z + (0 + XW + ~X~W + 0) = Z + (XW + ~X~W)
+
+
+
+
+
+4 - b) f(x,y,w,z) = PM(4, 9, 11, 13)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	1	1	1	1
+01	0	1	1	1
+11	1	0	1	1
+10	1	0	0	1
+
+Tomando 4 -> (X + ~Y + W + Z)
+Tomando 9 e 11 -> (~X + Y + ~Z)
+Tomando 9 e 13 -> (~X + W + ~Z)
+
+f(x,y,w,z) = PM(4, 9, 11, 13) = (X + ~Y + W + Z).(~X + Y + ~Z).(~X + W + ~Z) = (X + ~Y + W + Z).(~X + ~Z + YW)
+
+
+
+
+4 - c) f(x,y,w,z) = PM(8, 9, 12, 13, 15)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	1	1	1	1
+01	1	1	1	1
+11	0	0	0	1
+10	0	0	1	1
+
+Tomando 8, 9, 12 e 13 -> (~X + W)
+Tomando 13 e 15 -> (~X + ~Y + ~Z)
+
+f(x,y,w,z) = PM(8, 9, 12, 13, 15) = (~X + W).(~X + ~Y + ~Z) = ~X + W(~Y + ~Z)
+
+
+
+
+4 - d) f(x,y,w,z) = PM(1, 2, 5, 6, 13, 14)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	1	0	1	0
+01	1	0	1	0
+11	1	0	1	0
+10	1	1	1	1
+
+Tomando 1 e 5 -> (X + W + ~Z)
+Tomando 2 e 6 -> (X + ~W + Z)
+Tomando 5 e 13 -> (~Y + W + ~Z)
+Tomando 6 e 14 -> (~Y + ~W + Z)
+
+f(x,y,w,z) = PM(1, 2, 5, 6, 13, 14) = (X + W + ~Z).(X + ~W + Z).(~Y + W + ~Z).(~Y + ~W + Z) = (X + (W + ~Z)(~W + Z)).(~Y + (W + ~Z).(~W + Z))
+
+= (X + WZ + ~W~Z).(~Y + WZ + ~W~Z)
+
+
+
+
+4 - e) f(x,y,w,z) = PM(4, 6, 7, 8, 11, 12)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	1	1	1	1
+01	0	1	0	0
+11	0	1	1	1
+10	0	1	0	1
+
+Tomando 4 e 6 -> (X + ~Y + Z)
+Tomando 6 e 7 -> (X + ~Ý + ~W)
+Tomando 8 e 12 -> (~X + W + Z)
+Tomando 11 -> (~X + Y + ~W + ~Z)
+
+f(x,y,w,z) = PM(4, 6, 7, 8, 11, 12) = (X + ~Y + Z).(X + ~Ý + ~W).(~X + W + Z).(~X + Y + ~W + ~Z) = (X + (~Y + Z).(~Y + W)).(~X + (W + Z).(Y + ~W + ~Z))
+
+
+
+
+------------------------------------------------------------------
+
+9 - ( ~(~X + ~Y) ).( ~(X . Y) ) + ( ~( ~X + (Y . Z) ) )
+
+f(x,y,z) = Sm(4, 5, 6)
+
+XY\Z	0	1
+
+00	m0	m1
+01	m2	m3
+11	m6	m7
+10	m4	m5
+
+XY\Z	0	1
+
+00	0	0
+01	0	0
+11	1	0
+10	1	1
+
+Tomando 4 e 5 -> X~Y
+Tomando 4 e 6 -> X~Z
+
+f(x,y,z) = Sm(4, 5, 6) = X~Y + X~Z
+
+
+
+
+
+10 - ( ~(~Y + W + ~X) ).( ~( Y.~W.X ) ) + ~( ~X + Y.W.Z )
+
+f(x,y,w,z) = PM(0, 1, 2, 3, 4, 5, 6, 7, 15)
+
+XY\WZ	00	01	11	10
+
+00	M0	M1	M3	M2
+01	M4	M5	M7	M6
+11	M12	M13	M15	M14
+10	M8	M9	M11	M10
+
+XY\WZ	00	01	11	10
+
+00	0	0	0	0
+01	0	0	0	0
+11	1	1	0	1
+10	1	1	1	1
+
+Tomando de 0 a 7 -> X
+Tomando 7 e 15 -> (~Y + W + ~Z)
+
+f(x,y,w,z) = PM(0, 1, 2, 3, 4, 5, 6, 7, 15) = X.(~Y + W + ~Z)
+
+
+
+
+------------------------------------------------------------------

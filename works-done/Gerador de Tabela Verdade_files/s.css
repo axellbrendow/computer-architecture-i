@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFF;
+    color: #222;
+    font: 13px Arial, Helvetica, sans-serif;
+    padding: 30px;
+}
+
+a {
+    color: #C00;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+h1 sup {
+    font-size: 11px;
+    color: #A00;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    background: #DDD;
+    width: 470px;
+    border: 0;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+    padding: 20px 0 13px 20px;
+}
+
+fieldset p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+#error {
+    color: #C00;
+}
+
+input {
+    width: 420px;
+    font-size: 18px;
+    padding: 8px 10px;
+}
+
+#result {
+    display: none;
+}
+
+#result, #result th, #result td {
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+}
+
+#result th {
+    background: #EEE;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px 10px;
+}
+
+#result td {
+    text-align: center;
+    padding: 4px 10px;
+}
+
+.erro {
+    background: #FDD;
+}
+
+#credits {
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+#examples {
+    display: none;
+    position: absolute;
+    position: fixed;
+    width: 370px;
+    height: 340px;
+    background: #FFF;
+    border: 1px solid #888;
+    box-shadow: 0 0 30px #444;
+    top: 50%;
+    left: 50%;
+    margin-top: -190px;
+    margin-left: -200px;
+    z-index: 10;
+    padding: 20px 30px;
+}
+
+#overlay {
+    display: none;
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #444;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    top: 0;
+    left: 0;
+}
+
+#examples-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#examples-table th {
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+#examples-table th, #examples-table td {
+    text-align: left;
+    border-bottom: 1px solid #CCC;
+    padding: 8px;
+}
+
+#examples-table td {
+    color: #666;
+    border-color: #DDD;
+}
+
+#examples-table b {
+    color: #000;
+}
+
+.try {
+    width: 1%;
+    white-space: nowrap;
+    font-size: 12px;
+}

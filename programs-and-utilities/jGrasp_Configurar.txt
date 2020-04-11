@@ -1,0 +1,39 @@
+jGrasp - Configurações
+
+Verilog (VHDL):
+
+File	
+   New
+     VHDL
+
+Settings
+ Compiler Settings
+   Workspace
+     Enviroment
+       New
+         Verilog
+         Commands
+         Make:
+         C/L: 
+         Compile: iverilog -o %base.vvp %FILE 
+         Check:   xterm (ou similar no Linux)
+
+         Run:     vvp %base.vvp
+         Debug:   gtkwave %base.vcd
+         Document:
+  
+         OK
+ 
+   Extensions
+     v  V
+
+     Save
+       OK
+
+     Use
+       Apply
+
+   Note: 
+     Add Icarus_Verilog\bin to your
+     System Environment PATH variable.
+

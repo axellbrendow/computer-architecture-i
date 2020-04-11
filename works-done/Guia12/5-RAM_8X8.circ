@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Constant">
+      <a name="facing" val="south"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#4-RAM_4X8.circ" name="8">
+    <tool name="main">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate">
+      <a name="facing" val="south"/>
+    </tool>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(270,270)" to="(270,290)"/>
+    <wire from="(280,270)" to="(280,360)"/>
+    <wire from="(420,270)" to="(420,510)"/>
+    <wire from="(410,270)" to="(410,460)"/>
+    <wire from="(280,360)" to="(390,360)"/>
+    <wire from="(310,510)" to="(420,510)"/>
+    <wire from="(300,460)" to="(410,460)"/>
+    <wire from="(390,270)" to="(390,360)"/>
+    <wire from="(310,270)" to="(310,510)"/>
+    <wire from="(300,270)" to="(300,460)"/>
+    <wire from="(150,510)" to="(310,510)"/>
+    <wire from="(170,460)" to="(300,460)"/>
+    <wire from="(150,360)" to="(280,360)"/>
+    <wire from="(230,290)" to="(270,290)"/>
+    <wire from="(230,310)" to="(380,310)"/>
+    <wire from="(380,270)" to="(380,310)"/>
+    <wire from="(400,200)" to="(400,240)"/>
+    <wire from="(290,180)" to="(290,240)"/>
+    <wire from="(460,210)" to="(460,230)"/>
+    <wire from="(480,190)" to="(520,190)"/>
+    <wire from="(400,200)" to="(450,200)"/>
+    <wire from="(290,180)" to="(450,180)"/>
+    <wire from="(170,300)" to="(170,320)"/>
+    <wire from="(170,290)" to="(190,290)"/>
+    <wire from="(190,300)" to="(200,300)"/>
+    <wire from="(190,290)" to="(190,300)"/>
+    <wire from="(180,230)" to="(180,320)"/>
+    <wire from="(180,230)" to="(460,230)"/>
+    <wire from="(170,320)" to="(180,320)"/>
+    <wire from="(180,320)" to="(220,320)"/>
+    <wire from="(150,410)" to="(200,410)"/>
+    <wire from="(180,430)" to="(220,430)"/>
+    <wire from="(180,320)" to="(180,430)"/>
+    <wire from="(290,270)" to="(290,400)"/>
+    <wire from="(400,270)" to="(400,420)"/>
+    <wire from="(230,400)" to="(290,400)"/>
+    <wire from="(230,420)" to="(400,420)"/>
+    <comp lib="0" loc="(150,510)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="clear"/>
+    </comp>
+    <comp lib="8" loc="(400,240)" name="main">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(150,360)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="read / write"/>
+    </comp>
+    <comp lib="0" loc="(520,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="mem saved data or 00000000"/>
+    </comp>
+    <comp lib="8" loc="(290,240)" name="main">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="3" loc="(200,300)" name="Demultiplexer">
+      <a name="width" val="2"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(150,310)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="address"/>
+    </comp>
+    <comp lib="3" loc="(480,190)" name="Multiplexer">
+      <a name="width" val="8"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(150,410)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="clock"/>
+    </comp>
+    <comp lib="3" loc="(200,410)" name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(150,310)" name="Splitter">
+      <a name="fanout" val="2"/>
+      <a name="incoming" val="3"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+    </comp>
+    <comp lib="0" loc="(170,460)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="data"/>
+    </comp>
+  </circuit>
+</project>

@@ -1,0 +1,222 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000006f1db0 .scope module, "Exemplo_0602" "Exemplo_0602" 2 44;
+ .timescale 0 0;
+v00000000006f93d0_0 .var "a", 0 0;
+v00000000006f9470_0 .net "a_and_b", 0 0, L_00000000006f4f30;  1 drivers
+v00000000006f9510_0 .net "a_nand_b", 0 0, L_00000000006dc140;  1 drivers
+v00000000006f95b0_0 .net "a_nor_b", 0 0, L_00000000006dcfa0;  1 drivers
+v00000000006f9650_0 .net "a_or_b", 0 0, L_00000000006dc0d0;  1 drivers
+v00000000006f96f0_0 .var "b", 0 0;
+v00000000006f9790_0 .net "choosed_operation_result", 0 0, L_0000000000752810;  1 drivers
+v00000000006f9830_0 .net "choosed_operation_result1", 0 0, L_0000000000752490;  1 drivers
+v00000000006f98d0_0 .net "choosed_operation_result2", 0 0, L_0000000000752650;  1 drivers
+v00000000006f9970_0 .var "key1", 0 0;
+v00000000006f9a10_0 .var "key2", 0 0;
+S_00000000006f2410 .scope module, "and_or" "AND_OR" 2 53, 2 30 0, S_00000000006f1db0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "and1"
+    .port_info 3 /OUTPUT 1 "or1"
+L_00000000006f4f30 .functor AND 1, v00000000006f93d0_0, v00000000006f96f0_0, C4<1>, C4<1>;
+L_00000000006dc0d0 .functor OR 1, v00000000006f93d0_0, v00000000006f96f0_0, C4<0>, C4<0>;
+v00000000006f81b0_0 .net "a", 0 0, v00000000006f93d0_0;  1 drivers
+v00000000006f8250_0 .net "and1", 0 0, L_00000000006f4f30;  alias, 1 drivers
+v00000000006f82f0_0 .net "b", 0 0, v00000000006f96f0_0;  1 drivers
+v00000000006f8390_0 .net "or1", 0 0, L_00000000006dc0d0;  alias, 1 drivers
+S_00000000006dcca0 .scope begin, "main" "main" 2 61, 2 61 0, S_00000000006f1db0;
+ .timescale 0 0;
+S_00000000006dce20 .scope module, "mux1" "multiplexer" 2 55, 2 8 0, S_00000000006f1db0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /INPUT 1 "key"
+    .port_info 3 /OUTPUT 1 "out"
+L_0000000000752340 .functor NOT 1, v00000000006f9970_0, C4<0>, C4<0>, C4<0>;
+L_00000000007523b0 .functor AND 1, L_00000000006f4f30, L_0000000000752340, C4<1>, C4<1>;
+L_0000000000752420 .functor AND 1, L_00000000006dc0d0, v00000000006f9970_0, C4<1>, C4<1>;
+L_0000000000752490 .functor OR 1, L_00000000007523b0, L_0000000000752420, C4<0>, C4<0>;
+v00000000006f8430_0 .net "a", 0 0, L_00000000006f4f30;  alias, 1 drivers
+v00000000006f84d0_0 .net "a_and_not_key", 0 0, L_00000000007523b0;  1 drivers
+v00000000006f8570_0 .net "b", 0 0, L_00000000006dc0d0;  alias, 1 drivers
+v00000000006f8610_0 .net "b_and_key", 0 0, L_0000000000752420;  1 drivers
+v00000000006f86b0_0 .net "key", 0 0, v00000000006f9970_0;  1 drivers
+v00000000006f8750_0 .net "not_key", 0 0, L_0000000000752340;  1 drivers
+v00000000006f87f0_0 .net "out", 0 0, L_0000000000752490;  alias, 1 drivers
+S_00000000006dbdd0 .scope module, "mux2" "multiplexer" 2 56, 2 8 0, S_00000000006f1db0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /INPUT 1 "key"
+    .port_info 3 /OUTPUT 1 "out"
+L_0000000000752500 .functor NOT 1, v00000000006f9970_0, C4<0>, C4<0>, C4<0>;
+L_0000000000752570 .functor AND 1, L_00000000006dc140, L_0000000000752500, C4<1>, C4<1>;
+L_00000000007525e0 .functor AND 1, L_00000000006dcfa0, v00000000006f9970_0, C4<1>, C4<1>;
+L_0000000000752650 .functor OR 1, L_0000000000752570, L_00000000007525e0, C4<0>, C4<0>;
+v00000000006f8890_0 .net "a", 0 0, L_00000000006dc140;  alias, 1 drivers
+v00000000006f8930_0 .net "a_and_not_key", 0 0, L_0000000000752570;  1 drivers
+v00000000006f89d0_0 .net "b", 0 0, L_00000000006dcfa0;  alias, 1 drivers
+v00000000006f8a70_0 .net "b_and_key", 0 0, L_00000000007525e0;  1 drivers
+v00000000006f8b10_0 .net "key", 0 0, v00000000006f9970_0;  alias, 1 drivers
+v00000000006f8bb0_0 .net "not_key", 0 0, L_0000000000752500;  1 drivers
+v00000000006f8c50_0 .net "out", 0 0, L_0000000000752650;  alias, 1 drivers
+S_00000000006dbf50 .scope module, "mux3" "multiplexer" 2 57, 2 8 0, S_00000000006f1db0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /INPUT 1 "key"
+    .port_info 3 /OUTPUT 1 "out"
+L_00000000007526c0 .functor NOT 1, v00000000006f9a10_0, C4<0>, C4<0>, C4<0>;
+L_0000000000752730 .functor AND 1, L_0000000000752490, L_00000000007526c0, C4<1>, C4<1>;
+L_00000000007527a0 .functor AND 1, L_0000000000752650, v00000000006f9a10_0, C4<1>, C4<1>;
+L_0000000000752810 .functor OR 1, L_0000000000752730, L_00000000007527a0, C4<0>, C4<0>;
+v00000000006f8cf0_0 .net "a", 0 0, L_0000000000752490;  alias, 1 drivers
+v00000000006f8d90_0 .net "a_and_not_key", 0 0, L_0000000000752730;  1 drivers
+v00000000006f8e30_0 .net "b", 0 0, L_0000000000752650;  alias, 1 drivers
+v00000000006f8ed0_0 .net "b_and_key", 0 0, L_00000000007527a0;  1 drivers
+v00000000006f8f70_0 .net "key", 0 0, v00000000006f9a10_0;  1 drivers
+v00000000006f9010_0 .net "not_key", 0 0, L_00000000007526c0;  1 drivers
+v00000000006f90b0_0 .net "out", 0 0, L_0000000000752810;  alias, 1 drivers
+S_0000000000752190 .scope module, "nand_or" "NAND_NOR" 2 54, 2 37 0, S_00000000006f1db0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "nand1"
+    .port_info 3 /OUTPUT 1 "nor1"
+L_00000000006dc140 .functor NAND 1, v00000000006f93d0_0, v00000000006f96f0_0, C4<1>, C4<1>;
+L_00000000006dcfa0 .functor NOR 1, v00000000006f93d0_0, v00000000006f96f0_0, C4<0>, C4<0>;
+v00000000006f9150_0 .net "a", 0 0, v00000000006f93d0_0;  alias, 1 drivers
+v00000000006f91f0_0 .net "b", 0 0, v00000000006f96f0_0;  alias, 1 drivers
+v00000000006f9290_0 .net "nand1", 0 0, L_00000000006dc140;  alias, 1 drivers
+v00000000006f9330_0 .net "nor1", 0 0, L_00000000006dcfa0;  alias, 1 drivers
+    .scope S_00000000006f1db0;
+T_0 ;
+    %fork t_1, S_00000000006dcca0;
+    %jmp t_0;
+    .scope S_00000000006dcca0;
+t_1 ;
+    %vpi_call 2 62 "$display", "\000" {0 0 0};
+    %vpi_call 2 63 "$display", "Exemplo_0602 - Axell Brendow - 631822" {0 0 0};
+    %vpi_call 2 64 "$display", "\000" {0 0 0};
+    %vpi_call 2 65 "$display", "key = 00  -->  and is used" {0 0 0};
+    %vpi_call 2 66 "$display", "key = 01  -->  or is used" {0 0 0};
+    %vpi_call 2 67 "$display", "key = 10  -->  nand is used" {0 0 0};
+    %vpi_call 2 68 "$display", "key = 11  -->  nor is used" {0 0 0};
+    %vpi_call 2 69 "$display", "\000" {0 0 0};
+    %vpi_call 2 72 "$monitor", "(%b, %b) = %b", v00000000006f93d0_0, v00000000006f96f0_0, v00000000006f9790_0 {0 0 0};
+    %vpi_call 2 74 "$display", "for key = 00" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f9970_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f9a10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 80 "$display", "\012for key = 01" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f9970_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f9a10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 86 "$display", "\012for key = 10" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f9970_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f9a10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 92 "$display", "\012for key = 11" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f9970_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f9a10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f93d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000006f96f0_0, 0, 1;
+    %end;
+    .scope S_00000000006f1db0;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0603.v";

@@ -1,0 +1,95 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000003dfb10 .scope module, "Exemplo_0508" "Exemplo_0508" 2 41;
+ .timescale 0 0;
+v0000000000706f20_0 .var "p", 0 0;
+v0000000000706fc0_0 .var "q", 0 0;
+v0000000000707060_0 .net "result", 0 0, L_0000000000708fd0;  1 drivers
+S_00000000003dfc90 .scope begin, "main" "main" 2 51, 2 51 0, S_00000000003dfb10;
+ .timescale 0 0;
+S_00000000003de020 .scope module, "p_and_not_q" "p_AND_not_q" 2 47, 2 28 0, S_00000000003dfb10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+v0000000000706c70_0 .net "not_q", 0 0, L_00000000006adef0;  1 drivers
+v0000000000706d10_0 .net "p", 0 0, v0000000000706f20_0;  1 drivers
+v0000000000706de0_0 .net "q", 0 0, v0000000000706fc0_0;  1 drivers
+v0000000000706e80_0 .net "result", 0 0, L_0000000000708fd0;  alias, 1 drivers
+S_00000000003de1a0 .scope module, "NOT_q" "NOT" 2 34, 2 7 0, S_00000000003de020;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000006adef0 .functor NOR 1, v0000000000706fc0_0, v0000000000706fc0_0, C4<0>, C4<0>;
+v00000000003de320_0 .net "p", 0 0, v0000000000706fc0_0;  alias, 1 drivers
+v00000000003dfe10_0 .net "result", 0 0, L_00000000006adef0;  alias, 1 drivers
+S_00000000006adab0 .scope module, "p_AND_not_q" "AND" 2 37, 2 13 0, S_00000000003de020;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /INPUT 1 "q"
+    .port_info 2 /OUTPUT 1 "result"
+L_0000000000708fd0 .functor NOR 1, L_00000000003de760, L_0000000000708f60, C4<0>, C4<0>;
+v0000000000706950_0 .net "not_p", 0 0, L_00000000003de760;  1 drivers
+v00000000007069f0_0 .net "not_q", 0 0, L_0000000000708f60;  1 drivers
+v0000000000706a90_0 .net "p", 0 0, v0000000000706f20_0;  alias, 1 drivers
+v0000000000706b30_0 .net "q", 0 0, L_00000000006adef0;  alias, 1 drivers
+v0000000000706bd0_0 .net "result", 0 0, L_0000000000708fd0;  alias, 1 drivers
+S_00000000006adc30 .scope module, "NOT_p" "NOT" 2 20, 2 7 0, S_00000000006adab0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_00000000003de760 .functor NOR 1, v0000000000706f20_0, v0000000000706f20_0, C4<0>, C4<0>;
+v00000000006acd70_0 .net "p", 0 0, v0000000000706f20_0;  alias, 1 drivers
+v00000000006addb0_0 .net "result", 0 0, L_00000000003de760;  alias, 1 drivers
+S_0000000000706730 .scope module, "NOT_q" "NOT" 2 21, 2 7 0, S_00000000006adab0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p"
+    .port_info 1 /OUTPUT 1 "result"
+L_0000000000708f60 .functor NOR 1, L_00000000006adef0, L_00000000006adef0, C4<0>, C4<0>;
+v00000000006ade50_0 .net "p", 0 0, L_00000000006adef0;  alias, 1 drivers
+v00000000007068b0_0 .net "result", 0 0, L_0000000000708f60;  alias, 1 drivers
+    .scope S_00000000003dfb10;
+T_0 ;
+    %fork t_1, S_00000000003dfc90;
+    %jmp t_0;
+    .scope S_00000000003dfc90;
+t_1 ;
+    %vpi_call 2 52 "$display", "\000" {0 0 0};
+    %vpi_call 2 53 "$display", "Exemplo_0508 - Axell Brendow - 631822" {0 0 0};
+    %vpi_call 2 54 "$display", "\000" {0 0 0};
+    %vpi_call 2 57 "$monitor", "p_AND_not_q(%b, %b) = %b", v0000000000706f20_0, v0000000000706fc0_0, v0000000000707060_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000706f20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000706fc0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000706f20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000706fc0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000706f20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000000706fc0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000706f20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000000706fc0_0, 0, 1;
+    %end;
+    .scope S_00000000003dfb10;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0508.v";

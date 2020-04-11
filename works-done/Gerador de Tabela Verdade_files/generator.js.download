@@ -1,0 +1,229 @@
+/**
+ * Truth Table Generator
+ * Developed by Guilherme Sehn - 03/01/2014
+ */
+
+;(function($) {
+    'use strict'
+
+    var VARIABLES_LIMIT = 10 // Limit of variables that can be used in a boolean expression
+
+    /**
+     * Checks if a given expression is valid
+     * Returns null if there is no error or the error description in case it is not valid
+     */
+    function validateExpression(expression) {
+        var parenthesisCount = 0,
+            character = null,
+            previousCharacter = null,
+            expressionLength = expression.length,
+            error = null,
+            triggerError = function(column, message) {
+                error = message.replace(/\@/g, column + 1)
+            }
+
+        if (expression == '') {
+            triggerError(0, 'Digite a sua expressão')
+        } else if (expression[0].match(/[\+\.\'\)]/)) {
+            triggerError(0, 'Caractere "' + expression[0] + '" inesperado no início da expressão')
+        } else {
+            for (var i = 0; i < expressionLength; ++i) {
+                character = expression[i]
+
+                if (character.match(/[^01A-Z\.\+\(\)\']/)) {
+                    triggerError(i, 'Caractere "' + character + '" inesperado na coluna @')
+                    break
+                } else if (character.match(/[\+\.\']/) && previousCharacter.match(/[\+\.\(]/)) {
+                    triggerError(i, 'Caractere "' + character + '" inesperado após o caractere "' + previousCharacter + '" na coluna @')
+                    break
+                } else if (character == ')' && (parenthesisCount == 0 || previousCharacter.match(/[\+\.\(]/))) {
+                    triggerError(i, 'Fechamento de parêntesis inesperado na coluna @')
+                    break
+                } else if (character == '(' && previousCharacter != null && !previousCharacter.match(/[\+\.]/)) {
+                    triggerError(i, 'Início de parêntesis inesperado na coluna @')
+                    break
+                } else if (character.match(/[A-Z]/) && previousCharacter != null && previousCharacter.match(/[A-Z']/)) {
+                    triggerError(i, 'Caractere inesperado "' + character + '" após "' + previousCharacter + '"')
+                    break
+                }
+
+                if (character == '(') ++parenthesisCount
+                else if (character == ')') --parenthesisCount
+
+                previousCharacter = character
+            }
+
+            if (error == null) {
+                if (parenthesisCount > 0) {
+                    triggerError(expressionLength, 'Expressão terminada sem fechar todos os parêntesis')
+                } else if (character == '+' || character == '.') {
+                    triggerError(expressionLength, 'Caractere "' + character + '" inesperado no fim da expressão')
+                }
+            }
+        }
+
+        return error
+    }
+
+    /**
+     * Returns an array of unique variables from an expression
+     */
+    function pickVariables(expression) {
+        var letters = expression.replace(/[^A-Z]/g, ''),
+            variables = []
+
+        for (var i = 0, j = letters.length; i < j; ++i) {
+            if (variables.indexOf(letters[i]) == -1) {
+                variables.push(letters[i])
+            }
+        }
+
+        return variables.sort()
+    }
+
+    /**
+     * Recursive function that does the necessary steps to get the result of a boolean
+     * expression
+     */
+    function getResult(expression) {
+        if (expression.match(/\([01]\)/))
+            return getResult(expression.replace(/\(([01])\)/g, '$1'))
+
+        if (expression.match(/[01]'/))
+            return getResult(expression.replace(/0'/g, '1').replace(/1'/g, '0'))
+
+        var match, mathExpression = null
+        if ((match = expression.match(/([01])([01\+\.]+)?([01])/))) {
+            var mathExpression = expression.substr(match.index, match[0].length).replace(/\./g, '*'),
+                result = eval(mathExpression)
+
+            result = result >= 1 ? '1' : '0'
+            expression = expression.substr(0, match.index) + result + expression.substr(match.index + match[0].length)
+
+            return getResult(expression)
+        }
+
+        return expression
+    }
+
+    /**
+     * Parse and calculate the result of an expression with the given variables
+     */
+    function parse(expression, values) {
+        for (var i in values) {
+            expression = expression.replace(new RegExp(i, 'g'), values[i])
+        }
+
+        return getResult(expression)
+    }
+
+    /**
+     * Generates the truth table for a boolean expression
+     */
+    function generateTruthTable(expression) {
+        expression = expression.toUpperCase().replace(/\s/g, '')
+
+        var error = validateExpression(expression)
+        if (error != null) {
+            return {
+                'status': 'error',
+                'message': error
+            }
+        }
+
+        var variables = pickVariables(expression),
+            variablesCount = variables.length
+
+        if (variablesCount > VARIABLES_LIMIT) {
+            return {
+                'status': 'error',
+                'message': 'O número de variáveis é limitado a ' + VARIABLES_LIMIT
+            }
+        }
+
+        var results = [],
+            binary = ''
+
+        for (var i = 0, max = Math.pow(2, variablesCount) - 1; i <= max; ++i) {
+            binary = i.toString(2)
+
+            if (binary.length < variables.length)
+                binary = new Array(variablesCount - binary.length + 1).join('0') + binary
+
+            var values = {}
+            for (var j = 0; j < variablesCount; j++) {
+                values[variables[j]] = binary[j]
+            }
+
+            results.push({
+                'values': values,
+                'result': parse(expression, values)
+            })
+        }
+
+        return {
+            'status': 'success',
+            'expression': expression,
+            'variables': variables,
+            'data': results
+        }
+    }
+
+    $(function() {
+        $('#show-examples').click(function(e) {
+            $('#overlay, #examples').show()
+            e.preventDefault()
+        })
+
+        $('#overlay').click(function() {
+            $('#overlay, #examples').hide()
+        })
+
+        $('#examples-table').on('click', '.try', function(e) {
+            $('#expression').val($(this).parents('tr').find('td:first').text())
+            $('form:first').submit()
+            $('#overlay').trigger('click')
+            e.preventDefault()
+        })
+
+        $('form:first').submit(function(e) {
+            var expression = $('#expression').val().toUpperCase(),
+                result = generateTruthTable(expression)
+            
+            $('#result, #error').hide()
+            $('#expression').val(expression)
+
+            if (result.status == 'success') {
+                var variablesCount = result.variables.length
+
+                // Generates header
+                var $thead = $('#result thead').html('<tr></tr>')
+
+                for (var i = 0, len = result.variables.length; i < len; ++i) {
+                    $('<th></th>').text(result.variables[i]).appendTo($thead)
+                }
+
+                $('<th></th>').text(result.expression).appendTo($thead)
+
+                // Generates body
+                var $tbody = $('#result tbody').html('')
+
+                for (var i = 0, len = result.data.length; i < len; ++i) {
+                    var $tr = $('<tr></tr>').appendTo($tbody)
+
+                    for (var j = 0; j < variablesCount; ++j) {
+                        $('<td></td>').text(result.data[i].values[result.variables[j]]).appendTo($tr)
+                    }
+
+                    $('<td></td>').text(result.data[i].result).appendTo($tr)
+                }
+
+                $('#result').fadeIn(250)
+            } else if (result.status == 'error') {
+                $('#error').text(result.message).fadeIn(250)
+            }
+
+            e.preventDefault()
+        })
+    })
+})(jQuery)

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="west"/>
+    </tool>
+    <tool name="Constant">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="south"/>
+    </tool>
+  </lib>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#Somador_Algebrico_4bits.circ" name="8"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(230,510)" to="(260,510)"/>
+    <wire from="(160,540)" to="(220,540)"/>
+    <wire from="(100,480)" to="(100,550)"/>
+    <wire from="(230,510)" to="(230,520)"/>
+    <wire from="(100,550)" to="(220,550)"/>
+    <wire from="(470,410)" to="(470,420)"/>
+    <wire from="(280,550)" to="(280,560)"/>
+    <wire from="(290,540)" to="(290,550)"/>
+    <wire from="(280,530)" to="(310,530)"/>
+    <wire from="(280,520)" to="(310,520)"/>
+    <wire from="(280,560)" to="(310,560)"/>
+    <wire from="(360,540)" to="(390,540)"/>
+    <wire from="(290,550)" to="(310,550)"/>
+    <wire from="(100,550)" to="(100,590)"/>
+    <wire from="(160,540)" to="(160,590)"/>
+    <wire from="(380,590)" to="(390,590)"/>
+    <wire from="(280,540)" to="(290,540)"/>
+    <wire from="(350,540)" to="(360,540)"/>
+    <wire from="(260,510)" to="(260,560)"/>
+    <wire from="(360,540)" to="(360,590)"/>
+    <wire from="(160,480)" to="(160,540)"/>
+    <wire from="(210,450)" to="(450,450)"/>
+    <wire from="(210,450)" to="(210,530)"/>
+    <wire from="(210,530)" to="(220,530)"/>
+    <wire from="(230,500)" to="(230,510)"/>
+    <wire from="(540,540)" to="(570,540)"/>
+    <wire from="(470,420)" to="(470,460)"/>
+    <wire from="(520,580)" to="(520,620)"/>
+    <wire from="(230,500)" to="(480,500)"/>
+    <wire from="(480,500)" to="(500,500)"/>
+    <wire from="(480,540)" to="(500,540)"/>
+    <wire from="(480,500)" to="(480,540)"/>
+    <wire from="(430,540)" to="(450,540)"/>
+    <wire from="(450,550)" to="(500,550)"/>
+    <wire from="(450,540)" to="(450,550)"/>
+    <wire from="(430,590)" to="(450,590)"/>
+    <wire from="(450,560)" to="(450,590)"/>
+    <wire from="(450,560)" to="(500,560)"/>
+    <wire from="(470,460)" to="(640,460)"/>
+    <wire from="(520,620)" to="(640,620)"/>
+    <wire from="(640,460)" to="(640,620)"/>
+    <comp lib="0" loc="(470,410)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="chave de operações"/>
+    </comp>
+    <comp lib="8" loc="(230,520)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="somador_algebrico"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(100,480)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="number1"/>
+    </comp>
+    <comp lib="1" loc="(350,540)" name="NOR Gate">
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="7" loc="(210,415)" name="Text">
+      <a name="text" val="chave = 110  --&gt;  &lt;OP&gt; = not_equality"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(160,480)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="number2"/>
+    </comp>
+    <comp lib="0" loc="(260,560)" name="Splitter"/>
+    <comp lib="7" loc="(199,397)" name="Text">
+      <a name="text" val="chave = 101  --&gt;  &lt;OP&gt; = equality"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(207,379)" name="Text">
+      <a name="text" val="chave = 100  --&gt;  &lt;OP&gt; = subtraction"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(570,540)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="label" val="num1&lt;OP&gt;num2"/>
+    </comp>
+    <comp lib="1" loc="(380,590)" name="NOT Gate"/>
+    <comp lib="7" loc="(199,360)" name="Text">
+      <a name="text" val="chave = 000  --&gt;  &lt;OP&gt; = addition"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="3" loc="(540,540)" name="Multiplexer">
+      <a name="select" val="3"/>
+      <a name="width" val="4"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(430,590)" name="Bit Extender">
+      <a name="in_width" val="1"/>
+      <a name="out_width" val="4"/>
+      <a name="type" val="sign"/>
+    </comp>
+    <comp lib="0" loc="(470,420)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(430,540)" name="Bit Extender">
+      <a name="in_width" val="1"/>
+      <a name="out_width" val="4"/>
+      <a name="type" val="sign"/>
+    </comp>
+  </circuit>
+</project>

@@ -1,0 +1,31 @@
+Instruções para entrega:
+0. Colocar nome e matrícula 
+   em todos os arquivos com texto 
+   (e como comentários iniciais em programas).
+   Formatos: .V, .JAVA, .TXT, .RTF ou .XLS 
+   (NÃO USAR .DOC, .DOCX, .XLSX ou .PDF).
+   Evitar espaços em branco em nomes de arquivos.
+1. Criar uma pasta com o número de matrícula e nome
+   (por exemplo, 999999-XXX_YYY_ZZZ).
+   Evitar espaços em branco em nomes de pastas.
+2. Colocar nessa pasta todos os arquivos 
+   relativos à atividade
+3. Comprimir a pasta (999999.ZIP)
+   Evitar outros tipos de compactação (.RAR,.GZ,.7Z).
+4. Entregar o arquivo compactado (999999.ZIP)
+   pelo SGA na atividade ainda vigente
+5. Exercícios em atraso poderão ser entregues 
+   em pastas separadas, mas estarão sujeitos 
+   aos critérios usados para entregas em atraso.
+6. Liberar o exercício para correção.
+
+Sugestão:
+   Tentar entregar os exercícios com antecipação.
+   Estabelecer como rotina pelo menos uma hora 
+   antes do prazo estipulado.
+
+Observação:
+   Exercícios entregues em atraso  
+   NÃO serão considerados para efeito de avaliação.
+   
+   Em virtude de feriado, a data está antecipada.

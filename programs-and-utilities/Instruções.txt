@@ -1,0 +1,104 @@
+PUC-Minas
+Instituto de Ciências Exatas e Informatica
+Curso de Ciência da Computação
+Arquitetura de Computadores I
+
+Pacote de programas para fundamentos de sistemas digitais
+
+Itens
+
+- 8085    v1.0 e v2.0
+- CPUSim  v3.9.0
+- Icarus  Verilog v.10.1.1 com GTKWave v3.3.92
+- JFLAP   v7.0
+- Logisim v2.15.x.y (ou superior, versão mais atualizada) 
+- LMC               (LittleManComputer)
+
+Instalação
+
+O arquivo compactado deverá ser expandido em uma 
+pasta de sua preferência, por exemplo em C:\.
+
+Os atalhos (.lnk) deverão ser verificados e 
+editados para essa pasta.
+
+Os arquivos terminados em (.bat) também deverão 
+ser editados para ajuste dos caminhos (path).
+
+Recomenda-se testar previamente o funcionamento 
+de todos os programas, mesmo sem previsões para
+usos imediatos.
+
+Para maior comodidade sugere-se  acrescentar  à
+variável de ambiente  PATH  o  caminho  para as
+pastas  que  contenham  programas  executáveis, 
+principalmente o Icarus_Verilog (iverilog) e
+GTKWave.
+
+
+Observações
+
+Qualquer editor de textos poderá ser associado
+para programas em Verilog. Sugere-se o uso de
+editores nativos do próprio sistema operacional 
+ou o JGrasp,  cujos detalhes para configuração 
+seguem anexos.
+
+Configuração do JGrasp
+
+jGrasp - Configurações
+
+Verilog (VHDL):
+
+File	
+   New
+     VHDL
+
+Settings
+ Compiler Settings
+   Workspace
+     Enviroment
+       New
+         Verilog
+         Commands
+         Make:
+         C/L: 
+         Compile: iverilog -o %base.vvp %FILE
+         Check: xterm (no Linux)
+         Run: vvp %base.vvp
+         Debug: gtkwave %base.vcd
+         Document:
+  
+         OK
+ 
+   Extensions
+     v  V
+
+     Save
+       OK
+
+     Use
+       Apply
+
+   OBS.: 
+     Recomendável: 
+       Incluir Icarus_Verilog\bin ao PATH
+       (variáveis de ambiente do sistema). 
+
+
+Todos os programas selecionados funcionarão em
+ambientes de quaisquer sistemas operacionais,
+EXCETO o Icarus_Verilog e o GTKWAVE que são
+dependentes de plataforma.
+
+Em ambientes Linux o Icarus_Verilog e o GTKWAVE
+podem ser instalados via
+
+sudo apt-get install iverilog gtkwave
+
+embora as versões possam ser mais antigas,
+porém aceitáveis.
+
+Para os demais programas basta a simples cópia
+para a pasta /opt e configuração das permissões
+para execução.

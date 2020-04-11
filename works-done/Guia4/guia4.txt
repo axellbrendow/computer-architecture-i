@@ -1,0 +1,365 @@
+Guia 0
+4
+
+Nome: Axell Brendow
+
+Matricula: 631822
+
+Data: 09/09/18
+
+
+
+Exercicios:
+
+
+
+------------------------------------------------------------------
+
+
+
+1 - a)
+
+#mintermos	mintermos	x	y	z	~(y + ~z)	x . ~(y + ~z)
+
+0		xyz		1	1	1	0		0
+1		xy~z		1	1	0	0		0
+2		x~yz		1	0	1	1		1
+3		x~y~z		1	0	0	0		0
+4		~xyz		0	1	1	0		0
+5		~xy~z		0	1	0	0		0
+6		~x~yz		0	0	1	1		0
+7		~x~y~z		0	0	0	0		0
+									SoP(2)
+
+
+
+1 - b)
+
+#mintermos	mintermos	x	y	z	~(~x + y)	~(~x + y) . z
+
+0		xyz		1	1	1	0		0
+1		xy~z		1	1	0	0		0
+2		x~yz		1	0	1	1		1
+3		x~y~z		1	0	0	1		0
+4		~xyz		0	1	1	0		0
+5		~xy~z		0	1	0	0		0
+6		~x~yz		0	0	1	0		0
+7		~x~y~z		0	0	0	0		0
+									SoP(2)
+
+
+
+1 - c)
+
+#mintermos	mintermos	x	y	z	~(~x + ~y)	~(~x + ~y) . ~z
+
+0		xyz		1	1	1	1		0
+1		xy~z		1	1	0	1		1
+2		x~yz		1	0	1	0		0
+3		x~y~z		1	0	0	0		0
+4		~xyz		0	1	1	0		0
+5		~xy~z		0	1	0	0		0
+6		~x~yz		0	0	1	0		0
+7		~x~y~z		0	0	0	0		0
+									SoP(1)
+
+
+
+1 - d)
+
+#mintermos	mintermos	x	y	z	~(x . y)	~(x . y) + ~z
+
+0		xyz		1	1	1	0		0
+1		xy~z		1	1	0	0		1
+2		x~yz		1	0	1	1		0
+3		x~y~z		1	0	0	1		0
+4		~xyz		0	1	1	1		0
+5		~xy~z		0	1	0	1		0
+6		~x~yz		0	0	1	1		0
+7		~x~y~z		0	0	0	1		0
+									SoP(1)
+
+
+
+1 - e)
+
+#mintermos	mintermos	x	y	z	(~x + ~y)	(y + z)		(~x + ~y).(y + z)
+
+0		xyz		1	1	1	0		1		0
+1		xy~z		1	1	0	0		1		0
+2		x~yz		1	0	1	1		1		1
+3		x~y~z		1	0	0	1		0		0
+4		~xyz		0	1	1	1		1		1
+5		~xy~z		0	1	0	1		1		1
+6		~x~yz		0	0	1	1		1		1
+7		~x~y~z		0	0	0	1		0		0
+											SoP(2, 4, 5, 6)
+
+
+
+------------------------------------------------------------------
+
+
+
+2 - a) x . ~(x + ~y) = x . (~x . y) = 0 . y = 0
+
+
+
+2 - b) (x + ~y) + (~y . x) = (x . ~y . ~y) + (x . ~y . x) = (x . ~y) + (x . ~y) = x . ~y
+
+
+
+2 - c) ~(x . y) . (~x + ~y) = (~x + ~y) . (~x + ~y) = ~x + ~y
+
+
+2 - d) ~(x . ~y) + ~(~x + ~y) = ~( ~( ~(x . ~y) + ~(~x + ~y) ) ) = ~( (x . ~y) . (~x + ~y) ) = ~( (x . ~y . ~x) + (x . ~y . ~y) ) = ~( 0 + x . ~y ) = ~( x . ~y ) = ~x + y
+
+
+
+2 - e) ~(y + x) . (y + ~x) = ~y . ~x . (y + ~x) = (~y . ~x . y) + (~y . ~x . ~x) = 0 + (~y . ~x) = ~y . ~x
+
+
+
+------------------------------------------------------------------
+
+
+
+3 - a) f(x,y,z) = E(m(1, 2, 4, 5))
+
+#mintermos	mintermos	x	y	z	SoP(1, 2, 4, 5)
+
+0		~x~y~z		0	0	0	0
+1		~x~yz		0	0	1	1
+2		~xy~z		0	1	0	1
+3		~xyz		0	1	1	0
+4		x~y~z		1	0	0	1
+5		x~yz		1	0	1	1
+6		xy~z		1	1	0	0
+7		xyz		1	1	1	0
+
+
+
+3 - b) f(x,y,z) = E(m(0, 2, 3, 6))
+
+#mintermos	mintermos	x	y	z	SoP(0, 2, 3, 6)
+
+0		~x~y~z		0	0	0	1
+1		~x~yz		0	0	1	0
+2		~xy~z		0	1	0	1
+3		~xyz		0	1	1	1
+4		x~y~z		1	0	0	0
+5		x~yz		1	0	1	0
+6		xy~z		1	1	0	1
+7		xyz		1	1	1	0
+
+
+
+
+3 - c) f(x,y,w,z) = E(m(0, 1, 3, 5, 7, 8, 10, 12))
+
+#mintermos	mintermos	x	y	w	z	SoP(0, 1, 3, 5, 7, 8, 10, 12)
+
+0		~x~y~w~z	0	0	0	0	1
+1		~x~y~wz		0	0	0	1	1
+2		~x~yw~z		0	0	1	0	0
+3		~x~ywz		0	0	1	1	1
+4		~xy~w~z		0	1	0	0	0
+5		~xy~wz		0	1	0	1	1
+6		~xyw~z		0	1	1	0	0
+7		~xywz		0	1	1	1	1
+8		x~y~w~z		1	0	0	0	1
+9		x~y~wz		1	0	0	1	0
+10		x~yw~z		1	0	1	0	1
+11		x~ywz		1	0	1	1	0
+12		xy~w~z		1	1	0	0	1
+13		xy~wz		1	1	0	1	0
+14		xyw~z		1	1	1	0	0
+15		xywz		1	1	1	1	0
+
+
+
+3 - d) f(x,y,w,z) = E(m(0, 2, 4, 6, 8, 11, 13))
+
+#mintermos	mintermos	x	y	w	z	SoP(0, 2, 4, 6, 8, 11, 13)
+
+0		~x~y~w~z	0	0	0	0	1
+1		~x~y~wz		0	0	0	1	0
+2		~x~yw~z		0	0	1	0	1
+3		~x~ywz		0	0	1	1	0
+4		~xy~w~z		0	1	0	0	1
+5		~xy~wz		0	1	0	1	0
+6		~xyw~z		0	1	1	0	1
+7		~xywz		0	1	1	1	0
+8		x~y~w~z		1	0	0	0	1
+9		x~y~wz		1	0	0	1	0
+10		x~yw~z		1	0	1	0	0
+11		x~ywz		1	0	1	1	1
+12		xy~w~z		1	1	0	0	0
+13		xy~wz		1	1	0	1	1
+14		xyw~z		1	1	1	0	0
+15		xywz		1	1	1	1	0
+
+
+
+
+3 - e) f(x,y,w,z) = E(m(0, 1, 2, 3, 6, 11, 15))
+
+#mintermos	mintermos	x	y	w	z	SoP(0, 1, 2, 3, 6, 11, 15)
+
+0		~x~y~w~z	0	0	0	0	1
+1		~x~y~wz		0	0	0	1	1
+2		~x~yw~z		0	0	1	0	1
+3		~x~ywz		0	0	1	1	1
+4		~xy~w~z		0	1	0	0	0
+5		~xy~wz		0	1	0	1	0
+6		~xyw~z		0	1	1	0	1
+7		~xywz		0	1	1	1	0
+8		x~y~w~z		1	0	0	0	0
+9		x~y~wz		1	0	0	1	0
+10		x~yw~z		1	0	1	0	0
+11		x~ywz		1	0	1	1	1
+12		xy~w~z		1	1	0	0	0
+13		xy~wz		1	1	0	1	0
+14		xyw~z		1	1	1	0	0
+15		xywz		1	1	1	1	1
+
+
+
+
+
+------------------------------------------------------------------
+
+
+4 - a) f(x,y,z) = PI(M(1, 3, 4, 5))
+
+#maxtermos	maxtermos	x	y	z	PoS(1, 3, 4, 5)
+
+0		x+y+z		0	0	0	1
+1		x+y+~z		0	0	1	0
+2		x+~y+z		0	1	0	1
+3		x+~y+~z		0	1	1	0
+4		~x+y+z		1	0	0	0
+5		~x+y+~z		1	0	1	0
+6		~x+~y+z		1	1	0	1
+7		~x+~y+~z	1	1	1	1
+
+
+
+4 - b) f(x,y,z) = PI(M(0, 1, 2, 4, 6))
+
+#maxtermos	maxtermos	x	y	z	PoS(0, 1, 2, 4, 6)
+
+0		x+y+z		0	0	0	0
+1		x+y+~z		0	0	1	0
+2		x+~y+z		0	1	0	0
+3		x+~y+~z		0	1	1	1
+4		~x+y+z		1	0	0	0
+5		~x+y+~z		1	0	1	1
+6		~x+~y+z		1	1	0	0
+7		~x+~y+~z	1	1	1	1
+
+
+
+4 - c) f(x,y,w,z) = PI(M(0, 1, 2, 5, 7, 8, 10, 12))
+
+#maxtermos	maxtermos	x	y	w	z	PoS(0, 1, 2, 5, 7, 8, 10, 12)
+
+0		 x+y+w+z	0	0	0	0	0
+1		x+y+w+~z	0	0	0	1	0
+2		x+y+~w+z	0	0	1	0	0
+3		x+y+~w~z	0	0	1	1	1
+4		x+~y+w+z	0	1	0	0	1
+5		x+~y+w+~z	0	1	0	1	0
+6		x+~y+~w+z	0	1	1	0	1
+7		x+~y+~w+~z	0	1	1	1	0
+8		~x+y+w+z	1	0	0	0	0
+9		~x+y+w+~z	1	0	0	1	1
+10		~x+y+~w+z	1	0	1	0	0
+11		~x+y+~w+~z	1	0	1	1	1
+12		~x+~y+w+z	1	1	0	0	0
+13		~x+~y+w+~z	1	1	0	1	1
+14		~x+~y+~w+z	1	1	1	0	1
+15		~x+~y+~w+~z	1	1	1	1	1
+
+
+
+
+4 - d) f(x,y,w,z) = PI(M(0, 2, 4, 5, 8, 9, 13))
+
+#maxtermos	maxtermos	x	y	w	z	PoS(0, 2, 4, 5, 8, 9, 13)
+
+0		 x+y+w+z	0	0	0	0	0
+1		x+y+w+~z	0	0	0	1	1
+2		x+y+~w+z	0	0	1	0	0
+3		x+y+~w~z	0	0	1	1	1
+4		x+~y+w+z	0	1	0	0	0
+5		x+~y+w+~z	0	1	0	1	0
+6		x+~y+~w+z	0	1	1	0	1
+7		x+~y+~w+~z	0	1	1	1	1
+8		~x+y+w+z	1	0	0	0	0
+9		~x+y+w+~z	1	0	0	1	0
+10		~x+y+~w+z	1	0	1	0	1
+11		~x+y+~w+~z	1	0	1	1	1
+12		~x+~y+w+z	1	1	0	0	1
+13		~x+~y+w+~z	1	1	0	1	0
+14		~x+~y+~w+z	1	1	1	0	1
+15		~x+~y+~w+~z	1	1	1	1	1
+
+
+
+
+
+4 - e) f(x,y,w,z) = PI(M(0, 1, 2, 6, 7, 13, 15))
+
+#maxtermos	maxtermos	x	y	w	z	PoS(0, 1, 2, 6, 7, 13, 15)
+
+0		 x+y+w+z	0	0	0	0	0
+1		x+y+w+~z	0	0	0	1	0
+2		x+y+~w+z	0	0	1	0	0
+3		x+y+~w~z	0	0	1	1	1
+4		x+~y+w+z	0	1	0	0	1
+5		x+~y+w+~z	0	1	0	1	1
+6		x+~y+~w+z	0	1	1	0	0
+7		x+~y+~w+~z	0	1	1	1	0
+8		~x+y+w+z	1	0	0	0	1
+9		~x+y+w+~z	1	0	0	1	1
+10		~x+y+~w+z	1	0	1	0	1
+11		~x+y+~w+~z	1	0	1	1	1
+12		~x+~y+w+z	1	1	0	0	1
+13		~x+~y+w+~z	1	1	0	1	0
+14		~x+~y+~w+z	1	1	1	0	1
+15		~x+~y+~w+~z	1	1	1	1	0
+
+
+
+
+
+------------------------------------------------------------------
+
+
+(Nessa questao seguirei o padrao do material em que o pressuposto no produtorio e' que as variaveis sao 0)
+
+5 - a) SoP(0, 1, 3) = (~x~y) + (~xy) + (xy)	PoS(2) = (~xy)
+
+
+5 - b) SoP(0, 2, 3) = (~x~y) + (x~y) + (xy)	PoS(1) = (x~y)
+
+
+
+5 - c) SoP(0, 2, 3, 6) = (~x~y~z) + (~xy~z) + (~xyz) + (xy~z)	PoS(1, 4, 5, 7) = (x+y+~z).(~x+y+z).(~x+y+~z).(~x+~y+~z)
+
+
+5 - d) SoP(0, 2, 4, 5, 6) = (~x~y~z) + (~xy~z) + (x~y~z) + (x~yz) + (xy~z)	PoS(1, 3, 7) = (x+y+~z).(x~y~z).(~x+~y+~z)
+
+
+
+5 - e)
+
+SoP(0, 1, 4, 6, 8, 9, 10, 11, 12, 14, 15) =
+(~x~y~w~z) + (~x~y~wz) + (~xy~w~z) + (~xyw~z) + (x~y~w~z) + (x~y~wz) + (x~yw~z) + (x~ywz) + (xy~w~z) + (xyw~z) + (xywz)
+
+PoS(2, 3, 5, 7, 13) = (x+y+~w+z).(x+y+~w+~z).(x+~y+w+~z).(x+~y+~w+~z).(~x+~y+w+~z)
+
+
+
+------------------------------------------------------------------

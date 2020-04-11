@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://bianchi.pro.br/programas/conversaoDeSistema.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="description" content="Conversão entre sistemas numéricos">
+<meta name="Keywords" content="números reais, decimal, binário, octal e hexadecimal.">
+<meta name="Author" content="Luiz Bianchi">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Conversão de sistemas numéricos</title>
+<link rel="stylesheet" href="./Conversão de sistemas numéricos_files/programas.css" type="text/css">
+
+<script language="javascript">
+<!--
+
+//----------------------------------------------------------------
+function matriz(n) {
+	this.length = n
+	return this;
+}
+nRestoA = new matriz(10);
+//-------------------------------------------------
+sValor = " " 
+nValor = 0
+function verSistema(form) {
+	paraBase = 0, deBase = 0
+	if (document.form1.radioPara[0].checked) {
+		paraBase = 10;
+	}
+	if (document.form1.radioPara[1].checked) {
+		paraBase = 2;
+	}
+	if (document.form1.radioPara[2].checked) {
+		paraBase = 8;
+	}
+	if (document.form1.radioPara[3].checked) {
+		paraBase = 16;
+	}
+	if (document.form1.radioDe[0].checked) {
+		deBase = 10
+		if (validaValor10(sValor))	{
+			deDecimal();
+		}
+	}
+	if (document.form1.radioDe[1].checked) {
+		deBase = 2;
+		if (validaValorDif10(sValor))	{
+			if (paraBase == 2)	{
+				document.form1.resultado.value = sValor
+			}
+			else	{
+				deDifDecimal();
+				if (paraBase == 8 || paraBase == 16)	{
+					sValor = document.form1.resultado.value
+					validaValor10(sValor)
+					deDecimal();
+				}
+			}
+		}
+	}
+	if (document.form1.radioDe[2].checked) {
+		deBase = 8;
+		if (validaValorDif10(sValor))	{
+			if (paraBase == 8)	{
+				document.form1.resultado.value = sValor
+			}
+			else	{
+				deDifDecimal();
+				if (paraBase == 2 || paraBase == 16)	{
+					sValor = document.form1.resultado.value
+					validaValor10(sValor)
+					deDecimal();
+				}
+			}
+		}
+	}
+	if (document.form1.radioDe[3].checked) {
+		deBase = 16;
+		if (validaValorDif10(sValor))	{
+			if (paraBase == 16)	{
+				sValor = sValor.toUpperCase();
+				document.form1.resultado.value = sValor;
+			}
+			else	{
+				deDifDecimal();
+				if (paraBase == 2 || paraBase == 8)	{
+					sValor = document.form1.resultado.value
+					validaValor10(sValor)
+					deDecimal();
+				}
+			}
+		}
+	} 
+}
+//--------- Conversão da base decimal para qualquer base --------//
+
+function deDecimal() {
+	var sTexto = "", sInt = "";
+	var nInicial = sInteiro;
+	
+//---- Cálculo da parte inteira (de decimal p/ qualquer base ----//
+
+	var nInteiro = sInteiro;
+	var nQuoc = 0, nResto = 0;
+	for (i=1; ; i++)	{
+		nQuoc = nInteiro / paraBase;
+		nResto = nInteiro % paraBase;		
+		if ((paraBase == 16) && (nResto > 9))	{
+			trataHexa(nResto);
+			nRestoA[i] = sHexa;
+		}
+		else	{
+			nRestoA[i] = nResto;
+		}
+		if (nQuoc < 1)	{			 // Na fração, Netscape não coloca ZERO
+			break;				 // à esquerda do ponto decimal.
+ 		}
+ 		else	{
+			nQuoc = parseInt(nQuoc)
+			nInteiro = nQuoc;	
+		}
+	}
+
+//--- Cálculo da parte fracionária (de decimal p/ qualquer base --//
+
+  	var nFracao = sFracao;
+  	var bTemFracao = true;
+	parteInt = "", sFracao = "";
+	sFracao = sFracao + nFracao;
+	if (bVirgula)	{
+		nFracao = sFracao / Math.pow(10, sFracao.length);
+		sFracao = "";
+		sFracao = sFracao + nFracao;
+ 		for (i1=1; i1<=20; i1++)	{
+ 			if (!bTemFracao)	{
+ 				if ((paraBase == 16) && (sInt > 9))	{
+					trataHexa(sInt);
+					parteInt = parteInt + sHexa;
+				}
+				else	{
+					if (sFracao.substring(0, i2) < "0") {       // Na fração, Netscape não coloca ZERO
+							parteInt = parteInt + "0";			   //  à esquerda do ponto decimal. 
+					}
+					else	{
+						parteInt = parteInt + sFracao.substring(0, i2);
+					}			
+				}
+				break;
+ 			} 
+			bTemFracao = false;
+			nFracao = sFracao * paraBase;
+ 			sFracao = "";
+			sFracao = sFracao + nFracao;
+			for (i2=0; i2<=sFracao.length; i2++) {
+				var sCarac = sFracao.substring(i2, i2 + 1)
+				sInt = sFracao.substring(0, i2)			
+				if (sCarac == ".")	{
+					bTemFracao = true
+					if ((paraBase == 16) && (sInt > 9))	{
+						trataHexa(sInt)
+						parteInt = parteInt + sHexa					
+					}
+					else	{
+						if (sFracao.substring(0, i2) < "0") {       // Na fração, Netscape não coloca ZERO
+							parteInt = parteInt + "0"			      //  à esquerda do ponto decimal. 
+						}
+						else	{
+							parteInt = parteInt + sFracao.substring(0, i2)	
+						}
+					}
+					sFracao = 0 + sFracao.substring(i2, sFracao.length)
+					break;
+				}
+			}
+		}
+ 	}
+ 	if (nInicial == 0)	{
+ 		sTexto = "0";
+ 	}
+ 	else	{
+ 		for (i=i; i>=1; i--)	{
+			sTexto = sTexto + nRestoA[i];
+		}
+	}
+	if (bVirgula)	{
+		sTexto = sTexto + "," + parteInt;
+	}
+	document.form1.resultado.value = sTexto;
+}
+//------- Conversão dos alg. alfabéticos para números -------//
+
+function trataHexa(sInt)	{
+	if (sInt == "10") sHexa = "A";
+	if (sInt == "11") sHexa = "B";
+	if (sInt == "12") sHexa = "C";
+	if (sInt == "13") sHexa = "D";
+	if (sInt == "14") sHexa = "E";
+	if (sInt == "15") sHexa = "F";
+}
+//----------- Validação dos algarismos da base 10 -----------//
+
+function validaValor10(sValor)	{
+	sInteiro = "", sFracao = ""
+	bVirgula = false;
+	for (var i = 0; i < sValor.length; i++) {
+		var sCarac = sValor.substring(i, i + 1)
+		if (sCarac == ",")	{
+			if (!bVirgula)	{
+				bVirgula = true;
+				continue;
+			}
+		}
+		if (sCarac < "0" || sCarac > "9")	{
+			alert("Este não é um número válido.")
+			return false;
+		}
+		if (bVirgula)		{
+			sFracao = sFracao + sCarac;
+		}
+		else	{
+			sInteiro = sInteiro + sCarac;
+		}
+	}
+	return true;
+}
+//----- Validação dos algarismos das bases diferentes da decimal -----//
+
+function validaValorDif10(sValor)	{
+	posVirg = 0; 
+	bVirgula = false;
+	if (deBase == 16)	{
+		sValor = sValor.toUpperCase();
+		document.form1.valor.value = sValor;
+	}
+	for (i = 0; i < sValor.length; i++) {
+		var sCarac = sValor.substring(i, i + 1)
+		if (sCarac == ",")	{
+			posVirg = i 
+			if (!bVirgula)	{
+				bVirgula = true;
+				continue;
+			}
+		}
+		if (deBase == 16) {
+			if (sCarac > "F")	{
+				alert("Este não é um número válido.");
+				return false;
+			}		
+		}
+		else	{
+			if (deBase == 2 || deBase == 8)	{
+				if (sCarac >= "a" || sCarac >= "A")	{
+					alert("Este não é um número válido.");
+					return false;		
+				}	
+			}
+		}
+		if (sCarac < 0 || sCarac > deBase-1)	{		
+			alert("Este não é um número válido.");
+			return false;		
+		}
+	}
+	return true;
+}
+//-------- Conversão de qualquer base para a base decimal -------//
+
+function deDifDecimal() {
+	nAlg = 0;
+	var sTexto = "", sInt = "";
+	var nInicial = sValor;
+	var nProduto = 0, nSoma = 0;
+	if (!bVirgula)	{
+		posVirg = i;
+	}
+	if (deBase == 16)	{
+		sValor = sValor.toUpperCase();
+		document.form1.valor.value = sValor.toUpperCase();
+	}
+	for (n=posVirg, exp=0; n>0; n--) {
+		if (deBase == 16)		{
+			verHexa(sValor,n);
+		}
+		if (nAlg < 10)	{
+			nAlg = sValor.charAt(n-1)
+		}
+		nProduto = nAlg * Math.pow(deBase, exp);
+		nSoma = nSoma + nProduto;
+		exp++;
+	}
+	if (bVirgula)	{
+		posVirg++
+		exp = (i - posVirg) * -1 
+		for (var n=i; n > posVirg; n--) {
+			if (deBase == 16)		{
+				verHexa(sValor,n);
+			}
+			if (nAlg < 10)	{
+				nAlg = sValor.charAt(n-1)
+			}
+			nProduto = nAlg * Math.pow(deBase, exp);
+			nSoma = nSoma + nProduto;
+			exp++
+		}
+	}
+	sInt = ""
+	if (nInicial == 0)	{
+ 		sTexto = "0";
+ 	}
+ 	else	{
+ 		sTexto = sTexto + nSoma;
+	}
+	for (i=0; i <= sTexto.length; i++)	{
+		if (sTexto.substring(i, i+1) == ".")	{
+			sInt = sInt + ",";
+		}
+		else	{
+			sInt = sInt + sTexto.substring(i, i+1);
+		}
+	}
+	document.form1.resultado.value = sInt;
+}
+//------- Conversão dos alg. alfabéticos para números -------//
+
+function verHexa(sValor,n)	{
+	nAlg = 0;
+	if (sValor.charAt(n-1) == "A")	nAlg = 10;
+	if (sValor.charAt(n-1) == "B")	nAlg = 11;
+	if (sValor.charAt(n-1) == "C")	nAlg = 12;
+	if (sValor.charAt(n-1) == "D")	nAlg = 13;
+	if (sValor.charAt(n-1) == "E")	nAlg = 14;
+	if (sValor.charAt(n-1) == "F")	nAlg = 15;	
+}
+
+//-----------------------------------------------------------------
+//-->
+</script>
+</head>
+<body>
+ <div align="center"><img src="./Conversão de sistemas numéricos_files/cablumadi.gif"></div>
+<table align="center" border="0" width="800" cellpadding="0" cellspacing="0" bgcolor="#eeeeff">
+  <tbody><tr bgcolor="#CCFF99">
+  	<td>&nbsp;</td>	
+  </tr><tr>
+    <td bgcolor="#5C743D"><img src="./Conversão de sistemas numéricos_files/linha01.gif" alt="" width="1" height="1" border="0"></td>
+  </tr><tr>
+    <td><input type="button" value="Primeira página" onclick="window.location=&#39;../index.php&#39;"></td>
+  </tr>
+    <tr><td width="500" align="center">
+      <table border="1" align="center" cellpadding="5" cellspacing="5" bgcolor="#FFFFCC">
+	 <tbody><tr>
+	 <td>
+<form name="form1">
+<center>
+  <h3 class="style1">Conversão de números inteiros e reais<br>
+  entre sistemas numéricos </h3>
+</center>
+
+<p align="center"><b><u>DE:</u></b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decimal
+<input type="radio" name="radioDe" checked="" value="decimal">&nbsp;&nbsp;&nbsp;&nbsp;Binário
+<input type="radio" name="radioDe" value="binario">&nbsp;&nbsp;&nbsp;&nbsp;Octal
+<input type="radio" name="radioDe" value="octal">&nbsp;&nbsp;&nbsp;&nbsp;Hexadecimal
+<input type="radio" name="radioDe" value="hexadecimal">
+</p>
+<p align="center"><b><u>PARA:</u></b>&nbsp;&nbsp;&nbsp;&nbsp;
+Decimal
+<input type="radio" name="radioPara" value="decimal">&nbsp;&nbsp;&nbsp;&nbsp;Binário
+<input type="radio" name="radioPara" checked="" value="binario">&nbsp;&nbsp;&nbsp;&nbsp;Octal
+<input type="radio" name="radioPara" value="octal">&nbsp;&nbsp;&nbsp;&nbsp;Hexadecimal
+<input type="radio" name="radioPara" value="hexadecimal">
+</p>
+<p align="center">Valor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="valor" size="25">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p align="center"><input type="button" value="Converter" onclick="sValor=document.form1.valor.value; verSistema(this.form)">&nbsp;
+<input type="reset" value="Limpar">
+</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./Conversão de sistemas numéricos_files/olhos.gif" width="70" height="37" align="absbottom">&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="resultado" value=" " size="25">
+
+</form>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+
+</tbody></table>
+<div align="center"><img src="./Conversão de sistemas numéricos_files/rodapelumadi.gif"><br>
+<img src="./Conversão de sistemas numéricos_files/rodape2.jpg"></div>
+
+
+<script language="JAVASCRIPT">
+    function ilumina(s) {
+    if ("INPUT"==event.srcElement.tagName)
+      event.srcElement.className=s
+  }
+</script>
+</body></html>

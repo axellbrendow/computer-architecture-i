@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#Meio_subtrador.circ" name="8">
+    <tool name="main">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(380,480)" to="(390,480)"/>
+    <wire from="(390,480)" to="(390,510)"/>
+    <wire from="(390,510)" to="(440,510)"/>
+    <wire from="(380,530)" to="(400,530)"/>
+    <wire from="(400,500)" to="(400,530)"/>
+    <wire from="(400,500)" to="(440,500)"/>
+    <wire from="(450,470)" to="(450,490)"/>
+    <wire from="(460,480)" to="(460,490)"/>
+    <wire from="(500,480)" to="(500,550)"/>
+    <wire from="(460,480)" to="(500,480)"/>
+    <wire from="(490,550)" to="(500,550)"/>
+    <wire from="(490,580)" to="(500,580)"/>
+    <wire from="(490,550)" to="(490,580)"/>
+    <wire from="(380,580)" to="(470,580)"/>
+    <wire from="(470,570)" to="(500,570)"/>
+    <wire from="(470,570)" to="(470,580)"/>
+    <wire from="(520,550)" to="(520,560)"/>
+    <wire from="(520,550)" to="(580,550)"/>
+    <wire from="(580,550)" to="(580,560)"/>
+    <wire from="(580,560)" to="(610,560)"/>
+    <wire from="(450,470)" to="(520,470)"/>
+    <wire from="(520,490)" to="(540,490)"/>
+    <wire from="(520,470)" to="(520,490)"/>
+    <wire from="(510,510)" to="(510,560)"/>
+    <wire from="(510,510)" to="(540,510)"/>
+    <wire from="(570,500)" to="(610,500)"/>
+    <comp lib="7" loc="(373,627)" name="Text">
+      <a name="text" val="lent? informa se a subtração"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(371,667)" name="Text">
+      <a name="text" val="a casa binária anterior"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(612,431)" name="Text">
+      <a name="text" val="algum bit da próxima casa"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="8" loc="(450,490)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="half_subtracter"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="7" loc="(372,647)" name="Text">
+      <a name="text" val="atual emprestou algum bit para"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="8" loc="(510,560)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="half_subtracter"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="7" loc="(611,456)" name="Text">
+      <a name="text" val="binária"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(615,383)" name="Text">
+      <a name="text" val="borrow? informa se a subtração"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(380,580)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="lent?"/>
+    </comp>
+    <comp lib="0" loc="(610,560)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="bit0"/>
+    </comp>
+    <comp lib="1" loc="(570,500)" name="OR Gate"/>
+    <comp lib="0" loc="(380,480)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="0" loc="(610,500)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="borrow?"/>
+    </comp>
+    <comp lib="7" loc="(612,407)" name="Text">
+      <a name="text" val="atual pegou emprestado"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(448,435)" name="Text">
+      <a name="text" val="a - b - lent?"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(380,530)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+  </circuit>
+</project>

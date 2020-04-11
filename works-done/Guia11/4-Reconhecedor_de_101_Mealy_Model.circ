@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(600,420)" to="(600,430)"/>
+    <wire from="(430,500)" to="(430,630)"/>
+    <wire from="(300,550)" to="(480,550)"/>
+    <wire from="(450,510)" to="(500,510)"/>
+    <wire from="(560,590)" to="(620,590)"/>
+    <wire from="(560,470)" to="(600,470)"/>
+    <wire from="(450,490)" to="(450,510)"/>
+    <wire from="(360,420)" to="(360,500)"/>
+    <wire from="(360,420)" to="(600,420)"/>
+    <wire from="(640,410)" to="(640,630)"/>
+    <wire from="(480,470)" to="(480,550)"/>
+    <wire from="(630,400)" to="(630,430)"/>
+    <wire from="(350,510)" to="(390,510)"/>
+    <wire from="(350,410)" to="(350,510)"/>
+    <wire from="(320,390)" to="(320,490)"/>
+    <wire from="(600,430)" to="(600,470)"/>
+    <wire from="(420,490)" to="(450,490)"/>
+    <wire from="(630,400)" to="(650,400)"/>
+    <wire from="(680,400)" to="(700,400)"/>
+    <wire from="(360,500)" to="(390,500)"/>
+    <wire from="(300,490)" to="(320,490)"/>
+    <wire from="(480,470)" to="(500,470)"/>
+    <wire from="(480,590)" to="(500,590)"/>
+    <wire from="(600,430)" to="(630,430)"/>
+    <wire from="(480,550)" to="(480,590)"/>
+    <wire from="(420,500)" to="(430,500)"/>
+    <wire from="(320,390)" to="(650,390)"/>
+    <wire from="(350,410)" to="(620,410)"/>
+    <wire from="(560,630)" to="(640,630)"/>
+    <wire from="(430,630)" to="(500,630)"/>
+    <wire from="(620,410)" to="(620,590)"/>
+    <wire from="(320,490)" to="(390,490)"/>
+    <wire from="(640,410)" to="(650,410)"/>
+    <comp lib="5" loc="(560,590)" name="D Flip-Flop">
+      <a name="label" val="state bit0"/>
+    </comp>
+    <comp lib="0" loc="(700,400)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="101 found"/>
+    </comp>
+    <comp lib="5" loc="(560,470)" name="D Flip-Flop">
+      <a name="label" val="state bit1"/>
+    </comp>
+    <comp lib="0" loc="(300,550)" name="Clock"/>
+    <comp lib="0" loc="(300,490)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="input"/>
+    </comp>
+    <comp lib="1" loc="(680,400)" name="AND Gate">
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp loc="(420,490)" name="State Manager"/>
+  </circuit>
+  <circuit name="State Manager">
+    <a name="circuit" val="State Manager"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(260,170)" to="(320,170)"/>
+    <wire from="(220,120)" to="(280,120)"/>
+    <wire from="(200,230)" to="(260,230)"/>
+    <wire from="(220,120)" to="(220,130)"/>
+    <wire from="(220,190)" to="(340,190)"/>
+    <wire from="(320,160)" to="(320,170)"/>
+    <wire from="(320,120)" to="(320,140)"/>
+    <wire from="(200,180)" to="(240,180)"/>
+    <wire from="(240,150)" to="(280,150)"/>
+    <wire from="(240,210)" to="(280,210)"/>
+    <wire from="(300,150)" to="(340,150)"/>
+    <wire from="(300,210)" to="(340,210)"/>
+    <wire from="(240,150)" to="(240,180)"/>
+    <wire from="(240,180)" to="(240,210)"/>
+    <wire from="(320,140)" to="(340,140)"/>
+    <wire from="(320,160)" to="(340,160)"/>
+    <wire from="(300,120)" to="(320,120)"/>
+    <wire from="(370,150)" to="(390,150)"/>
+    <wire from="(370,200)" to="(390,200)"/>
+    <wire from="(200,130)" to="(220,130)"/>
+    <wire from="(260,170)" to="(260,230)"/>
+    <wire from="(220,130)" to="(220,190)"/>
+    <comp lib="1" loc="(370,150)" name="AND Gate">
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="0" loc="(390,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="new_state_bit0"/>
+    </comp>
+    <comp lib="0" loc="(200,230)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="state_bit0"/>
+    </comp>
+    <comp lib="0" loc="(200,180)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="state_bit1"/>
+    </comp>
+    <comp lib="1" loc="(300,210)" name="NOT Gate"/>
+    <comp lib="0" loc="(390,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="new_state_bit1"/>
+    </comp>
+    <comp lib="0" loc="(200,130)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="input"/>
+    </comp>
+    <comp lib="1" loc="(300,150)" name="NOT Gate"/>
+    <comp lib="1" loc="(300,120)" name="NOT Gate"/>
+    <comp lib="1" loc="(370,200)" name="AND Gate"/>
+  </circuit>
+</project>

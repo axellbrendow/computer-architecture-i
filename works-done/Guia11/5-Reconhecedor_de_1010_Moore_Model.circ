@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(220,320)" to="(220,450)"/>
+    <wire from="(220,320)" to="(410,320)"/>
+    <wire from="(220,60)" to="(220,190)"/>
+    <wire from="(220,450)" to="(330,450)"/>
+    <wire from="(480,230)" to="(480,320)"/>
+    <wire from="(320,490)" to="(320,580)"/>
+    <wire from="(220,580)" to="(250,580)"/>
+    <wire from="(130,580)" to="(220,580)"/>
+    <wire from="(700,390)" to="(720,390)"/>
+    <wire from="(700,430)" to="(720,430)"/>
+    <wire from="(400,360)" to="(410,360)"/>
+    <wire from="(390,450)" to="(400,450)"/>
+    <wire from="(630,60)" to="(700,60)"/>
+    <wire from="(640,420)" to="(720,420)"/>
+    <wire from="(550,190)" to="(560,190)"/>
+    <wire from="(560,100)" to="(570,100)"/>
+    <wire from="(700,60)" to="(700,390)"/>
+    <wire from="(220,190)" to="(220,320)"/>
+    <wire from="(220,450)" to="(220,580)"/>
+    <wire from="(670,400)" to="(720,400)"/>
+    <wire from="(130,620)" to="(250,620)"/>
+    <wire from="(560,100)" to="(560,190)"/>
+    <wire from="(750,410)" to="(790,410)"/>
+    <wire from="(400,360)" to="(400,450)"/>
+    <wire from="(220,60)" to="(570,60)"/>
+    <wire from="(470,320)" to="(480,320)"/>
+    <wire from="(480,230)" to="(490,230)"/>
+    <wire from="(220,190)" to="(490,190)"/>
+    <wire from="(310,580)" to="(320,580)"/>
+    <wire from="(320,490)" to="(330,490)"/>
+    <wire from="(550,230)" to="(670,230)"/>
+    <wire from="(670,230)" to="(670,400)"/>
+    <wire from="(480,320)" to="(640,320)"/>
+    <wire from="(640,320)" to="(640,420)"/>
+    <wire from="(390,490)" to="(700,490)"/>
+    <wire from="(700,430)" to="(700,490)"/>
+    <comp lib="7" loc="(446,700)" name="Text">
+      <a name="text" val="Funcionamento: a cada clock, o valor de um flip-flop é passado para o outro."/>
+      <a name="font" val="Dialog plain 16"/>
+    </comp>
+    <comp lib="7" loc="(425,756)" name="Text">
+      <a name="text" val="estiver guardada a sequencia 1010, a saída é 1. Caso contrário é 0."/>
+      <a name="font" val="Dialog plain 16"/>
+    </comp>
+    <comp lib="5" loc="(470,320)" name="D Flip-Flop"/>
+    <comp lib="5" loc="(630,60)" name="D Flip-Flop"/>
+    <comp lib="7" loc="(498,632)" name="Text">
+      <a name="text" val="Reconhecedor da sequência 1010"/>
+      <a name="font" val="Dialog plain 20"/>
+    </comp>
+    <comp lib="1" loc="(750,410)" name="AND Gate">
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="0" loc="(130,620)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="input"/>
+    </comp>
+    <comp lib="5" loc="(550,190)" name="D Flip-Flop"/>
+    <comp lib="0" loc="(130,580)" name="Clock"/>
+    <comp lib="5" loc="(390,450)" name="D Flip-Flop"/>
+    <comp lib="5" loc="(310,580)" name="D Flip-Flop"/>
+    <comp lib="0" loc="(790,410)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="1010_found"/>
+    </comp>
+    <comp lib="7" loc="(430,728)" name="Text">
+      <a name="text" val="Quando, a partir do último flip-flop mais acima, indo até o penúltimo flip-flop mais abaixo"/>
+      <a name="font" val="Dialog plain 16"/>
+    </comp>
+  </circuit>
+</project>

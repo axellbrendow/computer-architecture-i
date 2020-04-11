@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.15.0.1.exe" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="south"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#Subtrador_completo_2bits_menos_bit_emprestado.circ" name="8">
+    <tool name="main">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(290,140)" to="(290,210)"/>
+    <wire from="(100,500)" to="(290,500)"/>
+    <wire from="(180,420)" to="(300,420)"/>
+    <wire from="(110,270)" to="(110,410)"/>
+    <wire from="(300,440)" to="(300,450)"/>
+    <wire from="(300,280)" to="(300,290)"/>
+    <wire from="(300,360)" to="(300,370)"/>
+    <wire from="(300,200)" to="(300,210)"/>
+    <wire from="(290,430)" to="(290,450)"/>
+    <wire from="(300,320)" to="(300,340)"/>
+    <wire from="(290,350)" to="(290,370)"/>
+    <wire from="(300,400)" to="(300,420)"/>
+    <wire from="(290,270)" to="(290,290)"/>
+    <wire from="(160,290)" to="(270,290)"/>
+    <wire from="(300,240)" to="(300,260)"/>
+    <wire from="(190,340)" to="(300,340)"/>
+    <wire from="(290,140)" to="(400,140)"/>
+    <wire from="(300,480)" to="(300,510)"/>
+    <wire from="(160,280)" to="(190,280)"/>
+    <wire from="(130,250)" to="(130,290)"/>
+    <wire from="(70,130)" to="(70,300)"/>
+    <wire from="(160,270)" to="(180,270)"/>
+    <wire from="(120,280)" to="(120,330)"/>
+    <wire from="(160,260)" to="(170,260)"/>
+    <wire from="(170,260)" to="(170,510)"/>
+    <wire from="(170,510)" to="(300,510)"/>
+    <wire from="(140,300)" to="(140,490)"/>
+    <wire from="(110,410)" to="(290,410)"/>
+    <wire from="(290,320)" to="(290,330)"/>
+    <wire from="(290,400)" to="(290,410)"/>
+    <wire from="(290,240)" to="(290,250)"/>
+    <wire from="(290,480)" to="(290,500)"/>
+    <wire from="(180,270)" to="(180,420)"/>
+    <wire from="(120,330)" to="(290,330)"/>
+    <wire from="(90,290)" to="(130,290)"/>
+    <wire from="(310,320)" to="(310,350)"/>
+    <wire from="(310,400)" to="(310,430)"/>
+    <wire from="(310,240)" to="(310,270)"/>
+    <wire from="(270,260)" to="(270,290)"/>
+    <wire from="(130,250)" to="(290,250)"/>
+    <wire from="(90,280)" to="(120,280)"/>
+    <wire from="(270,260)" to="(300,260)"/>
+    <wire from="(290,350)" to="(310,350)"/>
+    <wire from="(290,430)" to="(310,430)"/>
+    <wire from="(290,270)" to="(310,270)"/>
+    <wire from="(140,130)" to="(140,300)"/>
+    <wire from="(310,480)" to="(310,520)"/>
+    <wire from="(90,270)" to="(110,270)"/>
+    <wire from="(100,260)" to="(100,500)"/>
+    <wire from="(90,260)" to="(100,260)"/>
+    <wire from="(70,300)" to="(70,490)"/>
+    <wire from="(190,280)" to="(190,340)"/>
+    <wire from="(520,200)" to="(520,440)"/>
+    <wire from="(300,440)" to="(520,440)"/>
+    <wire from="(510,200)" to="(510,360)"/>
+    <wire from="(300,360)" to="(510,360)"/>
+    <wire from="(500,200)" to="(500,280)"/>
+    <wire from="(300,280)" to="(500,280)"/>
+    <wire from="(300,200)" to="(490,200)"/>
+    <wire from="(480,150)" to="(480,180)"/>
+    <wire from="(480,150)" to="(530,150)"/>
+    <comp lib="0" loc="(140,130)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="number2"/>
+    </comp>
+    <comp lib="0" loc="(530,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="label" val="number1 - number2"/>
+    </comp>
+    <comp lib="0" loc="(480,180)" name="Splitter">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(70,130)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="number1"/>
+    </comp>
+    <comp lib="8" loc="(290,450)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="full_subtracter"/>
+      <a name="labelloc" val="west"/>
+    </comp>
+    <comp lib="0" loc="(310,520)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="lent?"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="8" loc="(290,370)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="full_subtracter"/>
+      <a name="labelloc" val="west"/>
+    </comp>
+    <comp lib="8" loc="(290,210)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="full_subtracter"/>
+      <a name="labelloc" val="west"/>
+    </comp>
+    <comp lib="8" loc="(290,290)" name="main">
+      <a name="facing" val="north"/>
+      <a name="label" val="full_subtracter"/>
+      <a name="labelloc" val="west"/>
+    </comp>
+    <comp lib="0" loc="(70,300)" name="Splitter"/>
+    <comp lib="0" loc="(400,140)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="borrow?"/>
+    </comp>
+    <comp lib="0" loc="(140,300)" name="Splitter"/>
+  </circuit>
+</project>

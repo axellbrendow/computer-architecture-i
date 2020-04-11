@@ -1,0 +1,9 @@
+Aparentemente há um erro no enunciado da questão 3:
+
+"03.) Projetar e descrever em Logisim e Verilog um módulo
+para implementar uma memória RAM 2x8 (1 endereço para 8 bits)
+usando memórias RAM 1x4."
+
+2x8 é diferente de (1 endereço para 8 bits).
+
+Eu particularmente resolvi fazer uma memória 2x8.
